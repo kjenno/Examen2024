@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #22365d; /* Donkere achtergrondkleur */
+    color: #ffffff; /* Licht tekstkleur */
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center de hoofdinhoud horizontaal */
+  }
+
+  .header-651 {
+    background-color: #000; /* Kleur van de header */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    color: #ffffff; /* Witte tekst voor de header */
+  }
+
+  .header-651 h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .header-651 p {
+    font-size: 1rem;
+  }
+
+  .form-container {
+    background-color: #2b3748; /* Donkere container achtergrondkleur */
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    max-width: 400px;
+    width: 100%; /* Breedte van de container */
+    text-align: center; /* Center de tekst in de container */
+  }
+
+  input[type="file"],
+  select,
+  button {
+    width: 100%; /* Volledige breedte voor invoervelden */
+    padding: 10px; /* Padding binnen invoervelden */
+    margin: 10px 0; /* Ruimte tussen elementen */
+    border-radius: 6px; /* Afgeronde hoeken voor invoervelden */
+    border: 1px solid #ccc; /* Randkleur voor invoervelden */
+  }
+
+  button {
+    background-color: #00aaff; /* Achtergrondkleur van de knop */
+    color: #ffffff; /* Kleur van de knoptekst */
+    border: none; /* Geen rand */
+    cursor: pointer; /* Handcursor bij hover */
+  }
+
+  button:hover {
+    background-color: #0088cc; /* Donkerder blauw bij hover */
+  }
+
+  .scrollable-container {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center de inhoud binnen */
+    background-color: transparent; /* Transparant zodat container versmelt met achtergrond */
+  }
+
+  .pdf-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Grid lay-out met 2 kolommen */
+    gap: 20px 60px; /* Gap tussen de grid items */
+    justify-items: center; /* Center individuele grid items */
+    align-items: start;
+    max-width: 800px; /* Max breedte om te voorkomen dat de container te breed is */
+    width: 100%;
+    background-color: transparent; /* Transparant zodat het versmelt met de achtergrond */
+  }
+
+  .pdf-item {
+    text-align: center;
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    background-color: transparent; /* Geen achtergrond voor pdf-item */
+  }
+
+  .pdf-item a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #00aaff; /* Blauwe linkkleur */
+  }
+
+  .pdf-item hr {
+    border: 0;
+    border-top: 1px solid #4b5563; /* Grijze kleur voor horizontale lijn */
+    margin: 10px 0;
+  }
+
+  footer {
+    background-color: #22365d; /* Zelfde kleur als achtergrond */
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    color: #ffffff; /* Witte tekst voor de footer */
+  }
