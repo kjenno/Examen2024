@@ -403,7 +403,7 @@
       <div class="navbar-67">
         <header class="content74">
           <div class="content75">
-            <a href="./index.html">
+            <a href="./index.php">
               <img class="color-dark19" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
             </a>
 
