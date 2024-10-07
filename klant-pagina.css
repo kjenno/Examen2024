@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #22365d; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the main content horizontally */
+  }
+
+  .header-651 {
+    background-color: #000; /* Match the background color */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    color: #ffffff; /* White text for the header */
+  }
+
+  .header-651 h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .header-651 p {
+    font-size: 1rem;
+  }
+
+  .scrollable-container {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the content inside */
+    background-color: transparent; /* Transparent so container blends with background */
+  }
+
+  .pdf-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Grid layout with 2 columns */
+    gap: 20px 60px; /* Gap between the grid items */
+    justify-items: center; /* Center individual grid items */
+    align-items: start;
+    max-width: 800px; /* Set a max-width to prevent the container from being too wide */
+    width: 100%;
+    background-color: transparent; /* Transparent so it blends with the background */
+  }
+
+  .pdf-item {
+    text-align: center;
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    background-color: transparent; /* No background for pdf-item */
+  }
+
+  .pdf-item a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #00aaff; /* Blue link color */
+  }
+
+  .pdf-item hr {
+    border: 0;
+    border-top: 1px solid #4b5563; /* Gray color for horizontal rule */
+    margin: 10px 0;
+  }
+
+  footer {
+    background-color: #22365d; /* Same color as body background */
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    color: #ffffff; /* White text for the footer */
+  }
