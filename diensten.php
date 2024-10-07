@@ -342,6 +342,15 @@
 </html> -->
 
 
+<<<<<<< Updated upstream
+=======
+$sql = "SELECT naam, foto, aantal FROM products WHERE categorie = :categorie";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':categorie', $gekozenCategorie, PDO::PARAM_STR);
+$stmt->execute();
+$producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+>>>>>>> Stashed changes
 
 <!DOCTYPE html>
 <html>
@@ -407,6 +416,7 @@
           </div>
 
           <div class="content3">
+<<<<<<< Updated upstream
             <!-- Herhaal dit blok voor elk product -->
             <div class="product">
               <img
@@ -419,6 +429,24 @@
                 <div class="header">
                   <div class="heading1">Product name</div>
                   <div class="product-description">Variant</div>
+=======
+            <?php if (count($producten) > 0): ?>
+              <?php foreach ($producten as $product): ?>
+                <div class="product">
+                  <img
+                    class="placeholder-image-icon"
+                    loading="lazy"
+                    alt="<?php echo htmlspecialchars($product['naam']); ?>"
+                    src="<?php echo htmlspecialchars($product['foto']); ?>"
+                  />
+                  <div class="content4">
+                    <div class="header">
+                      <div class="heading1"><?php echo htmlspecialchars($product['naam']); ?></div>
+                      <div class="product-description">Aantal <br><?php echo htmlspecialchars($product['aantal']); ?></div>
+                    </div>
+                    <div class="price">Vraag uw offerte aan</div>
+                  </div>
+>>>>>>> Stashed changes
                 </div>
                 <div class="price">Vraag uw offerte aan</div>
               </div>
