@@ -1,310 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./registreren.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
-    />
-  </head>
-  <body>
-    <div class="registreren">
-      <main class="main1">
-        <header class="content35">
-          <div class="content36">
-            <img
-              class="color-dark6"
-              loading="lazy"
-              alt=""
-              src="./public/color--dark.svg"
-              id="colorDark"
-            />
-
-            <nav class="column6">
-              <div class="link-text12">Over Ons</div>
-              <div class="link-text13" id="linkText1">Diensten</div>
-              <div class="link-text14" id="linkText2">Projecten</div>
-              <div class="nav-link-dropdown3" id="navLinkDropdown">
-                <div class="link-text12">planning</div>
-              </div>
-            </nav>
-          </div>
-          <button
-            class="stylesecondary-smalltrue-a3"
-            id="styleSecondarySmallTrueA"
-          >
-            <div class="button7">inloggen</div>
-          </button>
-        </header>
-        <section class="sign-up-1">
-          <div class="navbar">
-            <div class="container5">
-              <div class="column7">
-                <img
-                  class="color-dark7"
-                  loading="lazy"
-                  alt=""
-                  src="./public/color--dark.svg"
-                />
-              </div>
-              <div class="content37" id="contentContainer">
-                <div class="already-have-an">Already have an account?</div>
-                <div class="log-in">Log In</div>
-              </div>
-            </div>
-          </div>
-          <div class="content38">
-            <div class="section-title4">
-              <h1 class="heading19">Sign Up</h1>
-              <div class="bsb-networks">
-                Lorem ipsum dolor sit amet adipiscing elit.
-              </div>
-            </div>
-            <form class="form1">
-              <div class="input5">
-                <div class="name">Name*</div>
-                <input class="typedefault-alternatefalse4" type="text" />
-              </div>
-              <div class="input5">
-                <div class="name">Email*</div>
-                <input class="typedefault-alternatefalse4" type="text" />
-              </div>
-              <div class="input5">
-                <div class="name">Password*</div>
-                <input class="typedefault-alternatefalse4" type="text" />
-              </div>
-              <div class="buttons">
-                <div
-                  class="styleprimary-smallfalse-al1"
-                  id="stylePrimarySmallFalseAl"
-                >
-                  <div class="button8">Sign up</div>
-                </div>
-                <button class="stylesecondary-smallfalse">
-                  <img
-                    class="icon-google"
-                    alt=""
-                    src="./public/icon--google.svg"
-                  />
-
-                  <div class="button8">Sign up with Google</div>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="footer"></div>
-        </section>
-      </main>
-      <footer class="footer-73">
-        <div class="content39">
-          <div class="logo3">
-            <img
-              class="color-dark8"
-              loading="lazy"
-              alt=""
-              src="./public/color--dark.svg"
-            />
-          </div>
-          <div class="links3">
-            <div class="link-one3">Over ons</div>
-            <div class="link-one3">Diensten</div>
-            <div class="link-one3">Projecten</div>
-            <div class="link-four3">Contact</div>
-            <div class="link-one3">Blog</div>
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <script>
-      var colorDark = document.getElementById("colorDark");
-      if (colorDark) {
-        colorDark.addEventListener("click", function (e) {
-          window.location.href = "./index.html";
-        });
-      }
-      
-      var linkText1 = document.getElementById("linkText1");
-      if (linkText1) {
-        linkText1.addEventListener("click", function (e) {
-          window.location.href = "./diensten.html";
-        });
-      }
-      
-      var linkText2 = document.getElementById("linkText2");
-      if (linkText2) {
-        linkText2.addEventListener("click", function (e) {
-          window.location.href = "./projecten.html";
-        });
-      }
-      
-      var navLinkDropdown = document.getElementById("navLinkDropdown");
-      if (navLinkDropdown) {
-        navLinkDropdown.addEventListener("click", function (e) {
-          window.location.href = "./planning.html";
-        });
-      }
-      
-      var styleSecondarySmallTrueA = document.getElementById(
-        "styleSecondarySmallTrueA"
-      );
-      if (styleSecondarySmallTrueA) {
-        styleSecondarySmallTrueA.addEventListener("click", function (e) {
-          window.location.href = "./login.html";
-        });
-      }
-      
-      var contentContainer = document.getElementById("contentContainer");
-      if (contentContainer) {
-        contentContainer.addEventListener("click", function (e) {
-          window.location.href = "./login.html";
-        });
-      }
-      
-      var stylePrimarySmallFalseAl = document.getElementById(
-        "stylePrimarySmallFalseAl"
-      );
-      if (stylePrimarySmallFalseAl) {
-        stylePrimarySmallFalseAl.addEventListener("click", function (e) {
-          window.location.href = "./admin-right-pagina.html";
-        });
-      }
-      </script>
-  </body>
-</html> -->
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="nl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./registreren.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
-    />
-    <title>Registreren</title>
-  </head>
-  <body>
-    <div class="registreren">
-      <main class="main1">
-        <header class="content35">
-          <div class="content36">
-            <a href="./index.html">
-              <img
-                class="color-dark6"
-                loading="lazy"
-                alt="Logo"
-                src="./public/color--dark.svg"
-              />
-            </a>
-
-            <nav class="column6">
-              <a href="./over-ons.html" class="link-text12">Over Ons</a>
-              <a href="./diensten.html" class="link-text13">Diensten</a>
-              <a href="./projecten.html" class="link-text14">Projecten</a>
-              <a href="./planning.html" class="nav-link-dropdown3">Planning</a>
-            </nav>
-          </div>
-          <button class="stylesecondary-smalltrue-a3">
-            <a href="./login.html" class="button7">Inloggen</a>
-          </button>
-        </header>
-
-        <section class="sign-up-1">
-          <div class="navbar">
-            <div class="container5">
-              <div class="column7">
-                <img
-                  class="color-dark7"
-                  loading="lazy"
-                  alt="Logo"
-                  src="./public/color--dark.svg"
-                />
-              </div>
-              <div class="content37">
-                <div class="already-have-an">Heb je al een account?</div>
-                <a href="./login.html" class="log-in">Log In</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="content38">
-            <div class="section-title4">
-              <h1 class="heading19">Meld je aan</h1>
-              <div class="bsb-networks">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-            </div>
-
-            <form class="form1" action="./admin-right-pagina.html" method="post">
-              <div class="input5">
-                <label for="name" class="name">Naam*</label>
-                <input id="name" class="typedefault-alternatefalse4" type="text" name="name" required />
-              </div>
-              <div class="input5">
-                <label for="email" class="name">Email*</label>
-                <input id="email" class="typedefault-alternatefalse4" type="email" name="email" required />
-              </div>
-              <div class="input5">
-                <label for="password" class="name">Wachtwoord*</label>
-                <input id="password" class="typedefault-alternatefalse4" type="password" name="password" required />
-              </div>
-
-              <div class="buttons">
-                <button type="submit" class="styleprimary-smallfalse-al1">
-                  <div class="button8">Meld je aan</div>
-                </button>
-                <button class="stylesecondary-smallfalse">
-                  <img
-                    class="icon-google"
-                    alt="Google Icon"
-                    src="./public/icon--google.svg"
-                  />
-                  <div class="button8">Meld je aan met Google</div>
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer-73">
-        <div class="content39">
-          <div class="logo3">
-            <a href="./index.html">
-              <img
-                class="color-dark8"
-                loading="lazy"
-                alt="Logo"
-                src="./public/color--dark.svg"
-              />
-            </a>
-          </div>
-          <div class="links3">
-            <a href="./over-ons.html" class="link-one3">Over ons</a>
-            <a href="./diensten.html" class="link-one3">Diensten</a>
-            <a href="./projecten.html" class="link-one3">Projecten</a>
-            <a href="./contact.html" class="link-four3">Contact</a>
-            <a href="./blog.html" class="link-one3">Blog</a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html> -->
-
-
-
-
-
 <?php
 // Controleer of het formulier is ingediend en verwerk de gegevens
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -312,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
     $password = ""; // Vul hier je MySQL root wachtwoord in als je er een hebt
-    $dbname = "registratie_db";
+    $dbname = "HyperLight"; // Zorg ervoor dat deze overeenkomt met de login database
 
     // Maak verbinding met de database
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -323,28 +16,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Ontvang de gegevens van het formulier
-    $naam = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $wachtwoord = password_hash($_POST['password'], PASSWORD_DEFAULT); // Versleuteld wachtwoord
+    $naam = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $wachtwoord = trim($_POST['password']);
+    $Admin = '2'; // Standaardwaarde voor Admin
+
+    // Hash het wachtwoord voor veilige opslag
+    $hashed_password = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+    // Genereer een unieke UUID voor de gebruiker
+    $uuid = uniqid('', true);
 
     // Controleer of het e-mailadres al bestaat
-    $check_email = "SELECT * FROM gebruikers WHERE email='$email'";
-    $result = $conn->query($check_email);
+    $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
 
-    if ($result->num_rows > 0) {
+    if ($stmt->num_rows > 0) {
         $melding = "Het e-mailadres is al geregistreerd.";
     } else {
         // Voeg de nieuwe gebruiker toe aan de database
-        $sql = "INSERT INTO gebruikers (naam, email, wachtwoord) VALUES ('$naam', '$email', '$wachtwoord')";
+        $stmt = $conn->prepare("INSERT INTO user (Uuid, Admin, Name, Email, Password) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $uuid, $Admin, $naam, $email, $hashed_password);
 
-        if ($conn->query($sql) === TRUE) {
-            $melding = "Registratie succesvol!";
+        if ($stmt->execute()) {
+            $melding = "Registratie succesvol! U kunt nu inloggen.";
+            // Direct doorverwijzen naar de inlogpagina na succesvolle registratie
+            header("Location: login.php");
+            exit();
         } else {
-            $melding = "Fout bij het registreren: " . $conn->error;
+            $melding = "Fout bij het registreren: " . $stmt->error;
         }
     }
 
-    // Sluit de verbinding
+    // Sluit de statements en de verbinding
+    $stmt->close();
     $conn->close();
 }
 ?>
@@ -352,11 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./registreren.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./registreren.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap">
     <title>Registreren</title>
 </head>
 <body>
@@ -364,19 +71,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main class="main1">
         <header class="content35">
             <div class="content36">
-                <a href="./index.html">
-                    <img class="color-dark6" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+                <a href="./index.php">
+                    <img class="color-dark6" loading="lazy" alt="Logo" src="./public/color--dark.svg">
                 </a>
-
                 <nav class="column6">
-                    <a href="./over-ons.html" class="link-text12">Over Ons</a>
-                    <a href="./diensten.html" class="link-text13">Diensten</a>
-                    <a href="./projecten.html" class="link-text14">Projecten</a>
-                    <a href="./planning.html" class="nav-link-dropdown3">Planning</a>
+                    <a href="./over-ons.php" class="link-text12">Over Ons</a>
+                    <a href="./diensten.php" class="link-text13">Diensten</a>
+                    <a href="./projecten.php" class="link-text14">Projecten</a>
+                    <a href="./planning.php" class="nav-link-dropdown3">Planning</a>
                 </nav>
             </div>
             <button class="stylesecondary-smalltrue-a3">
-                <a href="./login.html" class="button7">Inloggen</a>
+                <a href="./login.php" class="button7">Inloggen</a>
             </button>
         </header>
 
@@ -384,11 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="navbar">
                 <div class="container5">
                     <div class="column7">
-                        <img class="color-dark7" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+                        <img class="color-dark7" loading="lazy" alt="Logo" src="./public/color--dark.svg">
                     </div>
                     <div class="content37">
                         <div class="already-have-an">Heb je al een account?</div>
-                        <a href="./login.html" class="log-in">Log In</a>
+                        <a href="./login.php" class="log-in">Log In</a>
                     </div>
                 </div>
             </div>
@@ -397,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="section-title4">
                     <h1 class="heading19">Meld je aan</h1>
                     <div class="bsb-networks">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vul je gegevens hieronder in om een account te maken.
                     </div>
                 </div>
 
@@ -405,15 +111,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form class="form1" action="registreren.php" method="post">
                     <div class="input5">
                         <label for="name" class="name">Naam*</label>
-                        <input id="name" class="typedefault-alternatefalse4" type="text" name="name" required />
+                        <input id="name" class="typedefault-alternatefalse4" type="text" name="name" required>
                     </div>
                     <div class="input5">
                         <label for="email" class="name">Email*</label>
-                        <input id="email" class="typedefault-alternatefalse4" type="email" name="email" required />
+                        <input id="email" class="typedefault-alternatefalse4" type="email" name="email" required>
                     </div>
                     <div class="input5">
                         <label for="password" class="name">Wachtwoord*</label>
-                        <input id="password" class="typedefault-alternatefalse4" type="password" name="password" required />
+                        <input id="password" class="typedefault-alternatefalse4" type="password" name="password" required>
                     </div>
 
                     <div class="buttons">
@@ -425,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <!-- Meldingen -->
                 <?php if (isset($melding)): ?>
-                    <div class="melding">
+                    <div class="melding" style="text-align: center; color: red;">
                         <?php echo htmlspecialchars($melding); ?>
                     </div>
                 <?php endif; ?>
@@ -436,16 +142,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <footer class="footer-73">
         <div class="content39">
             <div class="logo3">
-                <a href="./index.html">
-                    <img class="color-dark8" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+                <a href="./index.php">
+                    <img class="color-dark8" loading="lazy" alt="Logo" src="./public/color--dark.svg">
                 </a>
             </div>
             <div class="links3">
-                <a href="./over-ons.html" class="link-one3">Over ons</a>
-                <a href="./diensten.html" class="link-one3">Diensten</a>
-                <a href="./projecten.html" class="link-one3">Projecten</a>
-                <a href="./contact.html" class="link-four3">Contact</a>
-                <a href="./blog.html" class="link-one3">Blog</a>
+                <a href="./over-ons.php" class="link-one3">Over ons</a>
+                <a href="./diensten.php" class="link-one3">Diensten</a>
+                <a href="./projecten.php" class="link-one3">Projecten</a>
+                <a href="./contact.php" class="link-four3">Contact</a>
+                <a href="./blog.php" class="link-one3">Blog</a>
             </div>
         </div>
     </footer>
