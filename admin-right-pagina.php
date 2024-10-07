@@ -17,25 +17,34 @@
         <header class="navbar-61">
           <div class="content16">
             <div class="content17">
-              <img
-                class="color-dark2"
-                loading="lazy"
-                alt=""
-                src="./public/color--dark.svg"
-                id="colorDark"
-              />
+              <a href="index.php">
+                <img
+                  class="color-dark2"
+                  loading="lazy"
+                  alt="Logo"
+                  src="./public/color--dark.svg"
+                />
+              </a>
 
               <nav class="column1">
-                <div class="link-text4">Over Ons</div>
-                <div class="link-text5">Diensten</div>
-                <div class="link-text6" id="linkText2">Projecten</div>
+                <div class="link-text4">
+                  <a href="over-ons.php">Over Ons</a>
+                </div>
+                <div class="link-text5">
+                  <a href="diensten.php">Diensten</a>
+                </div>
+                <div class="link-text6">
+                  <a href="projecten.php" id="linkText2">Projecten</a>
+                </div>
                 <div class="nav-link-dropdown1">
-                  <div class="link-text4">planning</div>
+                  <div class="link-text4">
+                    <a href="planning.php">Planning</a>
+                  </div>
                 </div>
               </nav>
             </div>
             <div class="stylesecondary-smalltrue-a1">
-              <div class="button2">uitloggen</div>
+              <div class="button2">Uitloggen</div>
             </div>
           </div>
         </header>
@@ -65,28 +74,25 @@
                 <img
                   class="image-icon"
                   loading="lazy"
-                  alt=""
+                  alt="Afspraken"
                   src="./public/image@2x.png"
                 />
 
                 <div class="content20">
                   <div class="content21">
-                    <h3 class="heading11">laat uw geplande afspraken zien</h3>
-                    <div class="separator">voer uw maandplanning in</div>
+                    <h3 class="heading11">Laat uw geplande afspraken zien</h3>
+                    <div class="separator">Voer uw maandplanning in</div>
                   </div>
                   <div class="action">
-                    <div
-                      class="stylelink-smallfalse-alter"
-                      id="styleLinkSmallFalseAlter"
-                    >
+                    <a href="admin-agenda.php" class="stylelink-smallfalse-alter">
                       <div class="link-text4">Plan</div>
                       <img
                         class="icon-chevron-right"
                         loading="lazy"
-                        alt=""
+                        alt="Chevron"
                         src="./public/icon--chevronright.svg"
                       />
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -94,28 +100,25 @@
                 <img
                   class="image-icon"
                   loading="lazy"
-                  alt=""
+                  alt="Producten"
                   src="./public/image-1@2x.png"
                 />
 
                 <div class="content20">
                   <div class="content21">
-                    <h3 class="heading11">beheer uw producten</h3>
-                    <div class="separator">bekijk hier alle producten</div>
+                    <h3 class="heading11">Beheer uw producten</h3>
+                    <div class="separator">Bekijk hier alle producten</div>
                   </div>
                   <div class="action">
-                    <div
-                      class="stylelink-smallfalse-alter"
-                      id="styleLinkSmallFalseAlter"
-                    >
-                      <div class="button4">producten</div>
+                    <a href="add-products.php" class="stylelink-smallfalse-alter">
+                      <div class="button4">Producten</div>
                       <img
                         class="icon-chevron-right"
                         loading="lazy"
-                        alt=""
+                        alt="Chevron"
                         src="./public/icon--chevronright.svg"
                       />
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -123,7 +126,7 @@
                 <img
                   class="image-icon"
                   loading="lazy"
-                  alt=""
+                  alt="Gegevens"
                   src="./public/image-2@2x.png"
                 />
 
@@ -137,15 +140,15 @@
                     </div>
                   </div>
                   <div class="action">
-                    <div class="stylelink-smallfalse-alter2">
+                    <a href="admin-data.php" class="stylelink-smallfalse-alter2">
                       <div class="link-text4">Gegevens</div>
                       <img
                         class="icon-chevron-right"
                         loading="lazy"
-                        alt=""
+                        alt="Chevron"
                         src="./public/icon--chevronright.svg"
                       />
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -223,49 +226,15 @@
               />
             </div>
             <div class="links1">
-              <div class="link-one1">Over ons</div>
-              <div class="link-one1">Diensten</div>
-              <div class="link-one1">Projecten</div>
-              <div class="link-four1">Contact</div>
-              <div class="link-one1">Blog</div>
+              <a href="over-ons.php" class="link-one1">Over ons</a>
+              <a href="diensten.php" class="link-one1">Diensten</a>
+              <a href="projecten.php" class="link-one1">Projecten</a>
+              <a href="contact.php" class="link-four1">Contact</a>
+              <a href="blog.php" class="link-one1">Blog</a>
             </div>
           </div>
         </section>
       </main>
     </div>
-
-    <script>
-      var colorDark = document.getElementById("colorDark");
-      if (colorDark) {
-        colorDark.addEventListener("click", function (e) {
-          window.location.href = "./index.html";
-        });
-      }
-      
-      var linkText2 = document.getElementById("linkText2");
-      if (linkText2) {
-        linkText2.addEventListener("click", function (e) {
-          window.location.href = "./projecten.html";
-        });
-      }
-      
-      var styleLinkSmallFalseAlter = document.getElementById(
-        "styleLinkSmallFalseAlter"
-      );
-      if (styleLinkSmallFalseAlter) {
-        styleLinkSmallFalseAlter.addEventListener("click", function (e) {
-          window.location.href = "./admin-agenda.html";
-        });
-      }
-      
-      var styleLinkSmallFalseAlter = document.getElementById(
-        "styleLinkSmallFalseAlter"
-      );
-      if (styleLinkSmallFalseAlter) {
-        styleLinkSmallFalseAlter.addEventListener("click", function (e) {
-          window.location.href = "./add-products.html";
-        });
-      }
-      </script>
   </body>
 </html>
