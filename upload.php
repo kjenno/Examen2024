@@ -42,7 +42,7 @@ if (isset($_POST['submit']))
                 $MText = ".";
                 MailSender($ReceiverMail,$fileDestination,$MSubject,$MText);
 
-                header("Location: index.php");
+                header("Location: denis-pagina.php");
                 exit();
             }   
             else 
