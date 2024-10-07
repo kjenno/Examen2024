@@ -1,9 +1,9 @@
 <?php
 // Database verbinding
 $host = 'localhost'; // je database host
-$db = 'Hyperlight'; // je database naam
+$db = 'hyperlightandsound'; // je database naam
 $user = 'root'; // je database gebruikersnaam
-$pass = 'Islamic'; // je database wachtwoord
+$pass = ''; // je database wachtwoord
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
