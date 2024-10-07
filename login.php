@@ -6,7 +6,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "klanten_db";
+$database = "hyperlightandsound";
 
 // Maak een connectie met de database
 $conn = new mysqli($servername, $username, $password, $database);
@@ -18,11 +18,11 @@ if ($conn->connect_error) {
 
 // Verwerk het formulier als het is verzonden via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
     // Controleer of het e-mailadres in de database staat
-    $stmt = $conn->prepare("SELECT id, wachtwoord FROM klanten WHERE email = ?");
+    $stmt = $conn->prepare("SELECT Uuid, Password FROM user WHERE Email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashed_password)) {
             // Sla de gebruiker id op in de sessie
             $_SESSION['user_id'] = $id;
-            header("Location: dashboard.php"); // Verwijs naar een beveiligde pagina
+            header("Location: klant-pagina.php"); // Verwijs naar een beveiligde pagina
             exit();
         } else {
             $error_message = "Onjuist wachtwoord.";
@@ -53,26 +53,25 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./login.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap">
+    <title>Inloggen</title>
 </head>
 <body>
     <div class="login">
         <header class="content49">
             <div class="content50">
-                <img class="color-dark13" loading="lazy" alt="" src="./public/color--dark.svg" id="colorDark" />
+                <img class="color-dark13" loading="lazy" alt="Logo" src="./public/color--dark.svg" id="colorDark">
                 <nav class="column10">
-                    <div class="dont-have-an">Over Ons</div>
-                    <div class="link-text25" id="linkText1">Diensten</div>
-                    <div class="link-text26" id="linkText2">Projecten</div>
-                    <div class="nav-link-dropdown6" id="navLinkDropdown">
-                        <div class="dont-have-an">Planning</div>
-                    </div>
+                    <a href="./over-ons.php" class="link-text25" id="linkText1">Over Ons</a>
+                    <a href="./diensten.php" class="link-text26" id="linkText2">Diensten</a>
+                    <a href="./projecten.php" class="link-text26" id="linkText3">Projecten</a>
+                    <a href="./planning.php" class="link-text26" id="linkText4">Planning</a>
                 </nav>
             </div>
             <button class="stylesecondary-smalltrue-a6">
@@ -80,85 +79,42 @@ $conn->close();
             </button>
         </header>
         <section class="login-1">
-            <div class="navbar1">
-                <div class="container6">
-                    <div class="column11"></div>
-                    <div class="content51" id="contentContainer">
-                        <div class="dont-have-an">Don't have an account?</div>
-                        <div class="sign-up">Heb je nog geen account? Meld je aan</div>
-                    </div>
-                </div>
-            </div>
             <div class="content52">
                 <div class="section-title7">
                     <h1 class="log-in1">Inloggen</h1>
                     <div class="login-description">
-                        Voer je gegevens hieronder in om in te loggen
+                        Voer je gegevens hieronder in om in te loggen.
                     </div>
                 </div>
                 <!-- Het formulier stuurt gegevens naar deze zelfde pagina (login.php) -->
                 <form class="form2" action="login.php" method="post">
                     <div class="input8">
-                        <div class="email2">Email*</div>
-                        <input class="typedefault-alternatefalse7" type="text" name="email" required />
+                        <label for="email" class="email2">Email*</label>
+                        <input id="email" class="typedefault-alternatefalse7" type="email" name="email" required>
                     </div>
                     <div class="input8">
-                        <div class="email2">Wachtwoord*</div>
-                        <input class="typedefault-alternatefalse7" type="password" name="password" required />
+                        <label for="password" class="email2">Wachtwoord*</label>
+                        <input id="password" class="typedefault-alternatefalse7" type="password" name="password" required>
                     </div>
                     <div class="container7">
                         <div class="buttons1" id="buttonsContainer">
                             <button class="styleprimary-smallfalse-al2" type="submit">
                                 <div class="button13">Inloggen</div>
                             </button>
-                            <button class="stylesecondary-smallfalse1">
-                                <img class="icon-google1" alt="" src="./public/icon--google.svg" />
-                                <div class="button14">Inloggen met Google</div>
-                            </button>
                         </div>
-                        <div class="link">Wachtwoord vergeten?</div>
+                        <a href="./wachtwoord-vergeten.php" class="link">Wachtwoord vergeten?</a>
                     </div>
                 </form>
+                <!-- Toon eventuele foutmeldingen -->
                 <?php
-                // Toon eventuele foutmeldingen
                 if (!empty($error_message)) {
-                    echo "<p style='color: red;'>$error_message</p>";
+                    echo "<p style='color: red; text-align: center;'>$error_message</p>";
                 }
                 ?>
             </div>
             <div class="footer1"></div>
         </section>
-        <section class="layout-246-wrapper">
-            <div class="layout-246">
-                <div class="section-title8">
-                    <div class="column12">
-                        <h1 class="heading33">Eenvoudig facturen ontvangen en beheren</h1>
-                    </div>
-                    <div class="column13">
-                        <div class="text-suspendisse-varius">
-                            Met ons inlogsysteem kun je facturen ontvangen en eenvoudig beheren. Geen gedoe meer met papieren facturen. Alles wordt digitaal geregeld, zodat jij je kunt focussen op je opdrachten.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="footer-76">
-            <div class="content53">
-                <div class="logo6">
-                    <img class="color-dark14" loading="lazy" alt="" src="./public/color--dark.svg" />
-                </div>
-                <div class="links6">
-                    <div class="link-one6">Over ons</div>
-                    <div class="link-one6">Diensten</div>
-                    <div class="link-one6">Projecten</div>
-                    <div class="link-four6">Contact</div>
-                    <div class="link-one6">Blog</div>
-                </div>
-            </div>
-        </section>
     </div>
-    <script>
-        // JavaScript code blijft ongewijzigd
-    </script>
 </body>
 </html>
+
