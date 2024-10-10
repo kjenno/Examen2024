@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 
 
-function MailSender($ReceiverMail,$fileDestination,$MSubject,$MText)
+function MailSender($ReceiverMail,$MSubject,$MText,$fileDestination)
 {
     $mail = new PHPMailer(true);
 
@@ -31,8 +31,11 @@ function MailSender($ReceiverMail,$fileDestination,$MSubject,$MText)
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = $MSubject;
-
-    $mail->addAttachment($fileDestination);
+    if($fileDestination != "")
+    {
+        $mail->addAttachment($fileDestination);
+    }
+   
 
     $mail->send();
     echo 'Message has been sent';

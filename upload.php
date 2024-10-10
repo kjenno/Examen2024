@@ -40,7 +40,7 @@ if (isset($_POST['submit']))
                 $ReceiverMail = $row['Email'];
                 $MSubject = "Factuur";
                 $MText = ".";
-                MailSender($ReceiverMail,$fileDestination,$MSubject,$MText);
+                MailSender($ReceiverMail,$MSubject,$MText,$fileDestination);
 
                 header("Location: denis-pagina.php");
                 exit();

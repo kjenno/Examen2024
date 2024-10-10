@@ -17,9 +17,13 @@
       <section class="scrollable-container">
         <div class="pdf-container">
           <?php
+            session_start();
+            $uuid = $_SESSION['user_id'];
             include("DatabaseConnection.php");
-            $sql = "SELECT PDFName, PDFId, BillDate FROM bills";
-            $result = $conn->query($sql);
+            $stmt = $conn->prepare("SELECT PDFName, PDFId, BillDate FROM bills WHERE Uuid = ?");
+            $stmt->bind_param("s", $uuid);  // Bind the user ID to the query
+            $stmt->execute();
+            $result = $stmt->get_result();
 
             if ($result) {
                 if ($result->num_rows > 0) {

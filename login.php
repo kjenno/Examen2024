@@ -2,19 +2,7 @@
 // Start sessie om gebruiker in te loggen
 session_start();
 
-// Database connectie details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "hyperlightandsound";
-
-// Maak een connectie met de database
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Controleer connectie
-if ($conn->connect_error) {
-    die("Connectie mislukt: " . $conn->connect_error);
-}
+include("DatabaseConnection.php");
 
 // Verwerk het formulier als het is verzonden via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,20 +10,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['password']);
 
     // Controleer of het e-mailadres in de database staat
-    $stmt = $conn->prepare("SELECT Uuid, Password FROM user WHERE Email = ?");
+    $stmt = $conn->prepare("SELECT Uuid, Admin, Password FROM user WHERE Email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     // Controleer of de gebruiker bestaat
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $hashed_password);
+        $stmt->bind_result($id, $Admin, $hashed_password);
         $stmt->fetch();
 
         // Controleer of het ingevoerde wachtwoord overeenkomt
         if (password_verify($password, $hashed_password)) {
             // Sla de gebruiker id op in de sessie
             $_SESSION['user_id'] = $id;
+            $_SESSION['admin_id'] = $Admin;
             header("Location: klant-pagina.php"); // Verwijs naar een beveiligde pagina
             exit();
         } else {

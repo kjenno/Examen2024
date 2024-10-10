@@ -2,18 +2,7 @@
 // Controleer of het formulier is ingediend en verwerk de gegevens
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database verbindingsgegevens
-    $servername = "localhost";
-    $username = "root";
-    $password = ""; // Vul hier je MySQL root wachtwoord in als je er een hebt
-    $dbname = "HyperLight"; // Zorg ervoor dat deze overeenkomt met de login database
-
-    // Maak verbinding met de database
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Controleer de verbinding
-    if ($conn->connect_error) {
-        die("Verbinding mislukt: " . $conn->connect_error);
-    }
+    include("DatabaseConnection.php");
 
     // Ontvang de gegevens van het formulier
     $naam = trim($_POST['name']);
@@ -121,7 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="password" class="name">Wachtwoord*</label>
                         <input id="password" class="typedefault-alternatefalse4" type="password" name="password" required>
                     </div>
-
                     <div class="buttons">
                         <button type="submit" class="styleprimary-smallfalse-al1">
                             <div class="button8">Meld je aan</div>
