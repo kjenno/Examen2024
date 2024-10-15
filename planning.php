@@ -310,6 +310,7 @@ if ($conn->connect_error) {
         <footer class="footer-74">
             <!-- Jouw bestaande footer code -->
         </footer>
-    </div>
+    </div>jrfn
+    
 </body>
 </html>

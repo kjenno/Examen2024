@@ -654,6 +654,49 @@
   }
 }
 
+.container8 {
+  padding: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-submit {
+  margin-top: 10px;
+}
+
+.styleprimary-smallfalse-al3 {
+  background-color: #4CAF50; /* Groene achtergrond */
+  color: white; /* Witte tekst */
+  border: none; /* Geen rand */
+  padding: 10px 15px; /* Wat padding */
+  cursor: pointer; /* Cursor naar pointer veranderen */
+  border-radius: 5px; /* Afgeronde hoeken */
+}
+
+.styleprimary-smallfalse-al3:hover {
+  background-color: #45a049; /* Donkergroen bij hover */
+}
+
+.delete-button {
+  background-color: #f44336; /* Rood voor de verwijderknop */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  background-color: #c62828; /* Donkerder rood bij hover */
+}
+
 
 
 
