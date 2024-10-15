@@ -93,30 +93,33 @@ include("B_add-products.php");
                 </div>
             </div>
             <div class="content58">
-                <?php if (count($producten) > 0): ?>
-                    <?php foreach ($producten as $product): ?>
-                        <div class="product9">
-                            <img
-                                class="placeholder-image-icon14"
-                                loading="lazy"
-                                alt="<?php echo htmlspecialchars($product['naam']); ?>"
-                                src="uploads/<?php echo htmlspecialchars($product['foto']); ?>"
-                            />
-                            <div class="container8">
-                                <div class="heading36"><?php echo htmlspecialchars($product['naam']); ?></div>
-                                <div class="product-descriptions"><?php echo htmlspecialchars($product['aantal']); ?> in voorraad</div>
-                                <!-- Verwijder formulier -->
-                                <form method="POST" action="">
-                                    <input type="hidden" name="product_naam" value="<?php echo htmlspecialchars($product['naam']); ?>">
-                                    <button type="submit" name="verwijder_product" class="delete-button">Verwijder</button>
-                                </form>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Geen producten beschikbaar in deze categorie.</p>
-                <?php endif; ?>
+    <?php if (count($producten) > 0): ?>
+        <?php foreach ($producten as $product): ?>
+            <div class="product-card">
+                <div class="product-image">
+                    <img
+                        class="product-photo"
+                        loading="lazy"
+                        alt="<?php echo htmlspecialchars($product['naam']); ?>"
+                        src="uploads/<?php echo htmlspecialchars($product['foto']); ?>"
+                    />
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name"><?php echo htmlspecialchars($product['naam']); ?></h2>
+                    <p class="product-stock"><?php echo htmlspecialchars($product['aantal']); ?> in voorraad</p>
+                </div>
+                <!-- Verwijder formulier -->
+                <form method="POST" action="" class="delete-form">
+                    <input type="hidden" name="product_naam" value="<?php echo htmlspecialchars($product['naam']); ?>">
+                    <button type="submit" name="verwijder_product" class="delete-button">Verwijder</button>
+                </form>
             </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>Geen producten beschikbaar in deze categorie.</p>
+    <?php endif; ?>
+</div>
+
         </section>
        
         <section class="footer-77">

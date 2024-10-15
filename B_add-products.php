@@ -4,10 +4,10 @@ include("DatabaseConnection.php");
 // Controleer of er een categorie is geselecteerd
 $gekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
 
-// maakt array voor producten
+// Maak array voor producten
 $producten = [];
 
-// Haal  categorieën op uit de database
+// Haal categorieën op uit de database
 $categorieQuery = "SELECT DISTINCT categorie FROM products";
 $categorieResult = $conn->query($categorieQuery);
 $categorieen = [];
@@ -68,18 +68,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
         $productAfbeelding = null;
     }
 
-    // Voeg het product toe aan de database
-    if ($productAfbeelding) {
-        $query = "INSERT INTO products (naam, categorie, aantal, foto) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($query);
-        if ($stmt) {
-            $stmt->bind_param("ssis", $productNaam, $productCategorie, $productAantal, $productAfbeelding);
-            $stmt->execute();
-            $stmt->close();
-            echo "<p>Product succesvol toegevoegd!</p>";
+    // Controleer of het product al bestaat in de database
+    $checkQuery = "SELECT naam FROM products WHERE naam = ?";
+    $stmtCheck = $conn->prepare($checkQuery);
+    if ($stmtCheck) {
+        $stmtCheck->bind_param("s", $productNaam);
+        $stmtCheck->execute();
+        $stmtCheck->store_result();
+        if ($stmtCheck->num_rows > 0) {
+            echo "Dit product bestaat al.";
         } else {
-            echo "Fout bij het voorbereiden van de invoegquery: " . $conn->error;
+            // Voeg het product toe aan de database
+            if ($productAfbeelding) {
+                $query = "INSERT INTO products (naam, categorie, aantal, foto) VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($query);
+                if ($stmt) {
+                    $stmt->bind_param("ssis", $productNaam, $productCategorie, $productAantal, $productAfbeelding);
+                    $stmt->execute();
+                    $stmt->close();
+                    echo "<p>Product succesvol toegevoegd!</p>";
+
+                    // Redirect naar dezelfde pagina om dubbele indiening te voorkomen
+                    header("Location: " . $_SERVER['PHP_SELF']);
+                    exit(); // Stop verdere uitvoering om dubbele invoeging te voorkomen
+                } else {
+                    echo "Fout bij het voorbereiden van de invoegquery: " . $conn->error;
+                }
+            }
         }
+        $stmtCheck->close();
     }
 }
 
