@@ -227,7 +227,7 @@
             </div>
             <div class="links1">
               <a href="over-ons.php" class="link-one1">Over ons</a>
-              <a href="diensten.php" class="link-one1">Diensten</a>
+              <a href="admin-agenda.php" class="link-one1">Diensten</a>
               <a href="projecten.php" class="link-one1">Projecten</a>
               <a href="contact.php" class="link-four1">Contact</a>
               <a href="blog.php" class="link-one1">Blog</a>
