@@ -25,11 +25,10 @@
             />
 
             <nav class="column25">
-              <div class="paragraph">Over Ons</div>
-              <div class="link-text41" id="linkText1">Diensten</div>
-              <div class="link-text42" id="linkText2">Projecten</div>
+              <a href="diensten.php" class="link-text41" id="linkText1">Diensten</a>
+              <a href="projecten.php" class="link-text42" id="linkText2">Projecten</a>
               <div class="nav-link-dropdown10" id="navLinkDropdown">
-                <div class="link-text43">Planning</div>
+                <a href="planning.php" class="link-text43">Planning</a>
               </div>
             </nav>
           </div>
@@ -38,7 +37,7 @@
               class="stylesecondary-smalltrue-a19"
               id="styleSecondarySmallTrueA"
             >
-              <div class="button34">inloggen</div>
+              <a href="inloggen.html" class="button34">inloggen</a>
             </div>
           </div>
         </div>
@@ -80,7 +79,7 @@
                     hart van Amsterdam.
                   </div>
                 </div>
-                <div class="stylelink-smallfalse-alter3">
+                <a href="lichtshow-amsterdam.html" class="stylelink-smallfalse-alter3">
                   <div class="button35">Bekijk Project</div>
                   <img
                     class="icon-chevron-right5"
@@ -88,7 +87,7 @@
                     alt=""
                     src="./public/icon--chevronright1.svg"
                   />
-                </div>
+                </a>
               </div>
             </div>
             <div class="card19">
@@ -107,7 +106,7 @@
                     festivalervaring.
                   </div>
                 </div>
-                <div class="stylelink-smallfalse-alter3">
+                <a href="geluidstechniek-festival.html" class="stylelink-smallfalse-alter3">
                   <div class="button36">Bekijk project</div>
                   <img
                     class="icon-chevron-right5"
@@ -115,14 +114,14 @@
                     alt=""
                     src="./public/icon--chevronright.svg"
                   />
-                </div>
+                </a>
               </div>
             </div>
           </div>
           <div class="actions6" id="actionsContainer">
-            <div class="stylesecondary-smallfalse4">
+            <a href="alle-projecten.php" class="stylesecondary-smallfalse4">
               <div class="paragraph">Bekijk alles</div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -174,7 +173,7 @@
                 </div>
                 <div class="list-item8">
                   <b class="text100">Website</b>
-                  <div class="text105">www.lichtfestival.nl</div>
+                  <a href="https://www.lichtfestival.nl" class="text105">www.lichtfestival.nl</a>
                 </div>
               </div>
             </div>
@@ -228,11 +227,6 @@
                 </p>
               </div>
             </div>
-            <div class="content99">
-              <div class="paragraph1">
-                strdytfyugiukgjgjgkuhiljvghlij,bhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiijjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
-              </div>
-            </div>
             <div class="content101">
               <div class="paragraph">
                 <p class="dit-project-richtte">
@@ -244,97 +238,25 @@
                   gebruik maakte van geavanceerde technologieën om een heldere
                   en krachtige geluidsweergave te garanderen.
                 </p>
-                <p class="dit-project-richtte">&nbsp;</p>
-                <p class="dit-project-richtte">
-                  Onze oplossing omvatte het strategisch plaatsen van
-                  luidsprekers en het gebruik van digitale mengpanelen, waardoor
-                  we de geluidskwaliteit konden optimaliseren. Dit stelde ons in
-                  staat om zowel de artiesten als het publiek een onvergetelijke
-                  ervaring te bieden.
-                </p>
-                <p class="dit-project-richtte">&nbsp;</p>
-                <p class="dit-project-richtte">
-                  De resultaten waren verbluffend: bezoekers gaven aan dat de
-                  geluidskwaliteit de beste was die ze ooit hadden ervaren op
-                  het festival. Bovendien ontvingen we lovende feedback van de
-                  artiesten zelf, die de helderheid en het bereik van het geluid
-                  prezen.
-                </p>
-                <p class="dit-project-richtte">&nbsp;</p>
-                <p class="dit-project-richtte">
-                  Door samen te werken met een team van ervaren technici en het
-                  gebruik van hoogwaardige apparatuur, hebben we niet alleen de
-                  verwachtingen overtroffen, maar ook een nieuwe standaard gezet
-                  voor toekomstige evenementen in de regio.
-                </p>
-                <p class="dit-project-richtte">&nbsp;</p>
-                <p class="dit-project-richtte">
-                  Dit project benadrukt onze toewijding aan kwaliteit en
-                  innovatie in licht- en geluidstechniek. We zijn trots op wat
-                  we hebben bereikt en kijken ernaar uit om soortgelijke
-                  projecten in de toekomst aan te pakken.
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="gallery-4">
-        <div class="gallery-header">
-          <div class="header-content">
-            <h1 class="heading60">Afbeeldingen Galerij</h1>
-            <div class="text92">
-              Bekijk onze indrukwekkende projecten in deze galerij.
-            </div>
-          </div>
-        </div>
-        <div class="content102">
-          <img
-            class="image-icon10"
-            loading="lazy"
-            alt=""
-            src="./public/image-31@2x.png"
-          />
-
-          <img
-            class="image-icon10"
-            loading="lazy"
-            alt=""
-            src="./public/image-4@2x.png"
-          />
-
-          <img
-            class="image-icon10"
-            loading="lazy"
-            alt=""
-            src="./public/image-5@2x.png"
-          />
-
-          <img
-            class="image-icon10"
-            loading="lazy"
-            alt=""
-            src="./public/image-6@2x.png"
-          />
-        </div>
-      </section>
       <footer class="footer-710">
         <div class="footer-top">
           <div class="top-content">
-            <div class="color-dark-wrapper">
-              <img
-                class="color-dark22"
-                loading="lazy"
-                alt=""
-                src="./public/color--dark.svg"
-              />
-            </div>
+            <img
+              class="color-dark22"
+              loading="lazy"
+              alt=""
+              src="./public/color--dark.svg"
+            />
+
             <div class="footer-links">
-              <div class="tagline8">Over ons</div>
-              <div class="tagline8">Diensten</div>
-              <div class="tagline8">Projecten</div>
-              <div class="link-four10">Contact</div>
-              <div class="tagline8">Blog</div>
+              <a href="diensten.php" class="tagline8">Diensten</a>
+              <a href="projecten.php" class="tagline8">Projecten</a>
+              <a href="contact.php" class="link-four10">Contact</a>
             </div>
           </div>
         </div>
@@ -345,62 +267,13 @@
               © 2024 Hyper Light and Sound. Alle rechten voorbehouden.
             </div>
             <div class="policy-links">
-              <div class="privacy-policy">Privacybeleid</div>
-              <div class="privacy-policy">Algemene Voorwaarden</div>
-              <div class="cookies-settings">Cookie-instellingen</div>
+              <a href="privacybeleid.html" class="privacy-policy">Privacybeleid</a>
+              <a href="algemene-voorwaarden.html" class="privacy-policy">Algemene Voorwaarden</a>
+              <a href="cookie-instellingen.html" class="cookies-settings">Cookie-instellingen</a>
             </div>
           </div>
         </div>
       </footer>
     </div>
-
-    <script>
-      var colorDark = document.getElementById("colorDark");
-      if (colorDark) {
-        colorDark.addEventListener("click", function (e) {
-          window.location.href = "./index.html";
-        });
-      }
-      
-      var linkText1 = document.getElementById("linkText1");
-      if (linkText1) {
-        linkText1.addEventListener("click", function (e) {
-          window.location.href = "./diensten.html";
-        });
-      }
-      
-      var linkText2 = document.getElementById("linkText2");
-      if (linkText2) {
-        linkText2.addEventListener("click", function () {
-          var anchor = document.querySelector("[data-scroll-to='header54']");
-          if (anchor) {
-            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-          }
-        });
-      }
-      
-      var navLinkDropdown = document.getElementById("navLinkDropdown");
-      if (navLinkDropdown) {
-        navLinkDropdown.addEventListener("click", function (e) {
-          window.location.href = "./planning.html";
-        });
-      }
-      
-      var styleSecondarySmallTrueA = document.getElementById(
-        "styleSecondarySmallTrueA"
-      );
-      if (styleSecondarySmallTrueA) {
-        styleSecondarySmallTrueA.addEventListener("click", function (e) {
-          window.location.href = "./login.html";
-        });
-      }
-      
-      var actionsContainer = document.getElementById("actionsContainer");
-      if (actionsContainer) {
-        actionsContainer.addEventListener("click", function (e) {
-          window.location.href = "./projecten-alles.html";
-        });
-      }
-      </script>
   </body>
 </html>
