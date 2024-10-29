@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="denis-pagina.css" />
+    <link rel="stylesheet" href="factuur.css" />
     <title>Facturen Pagina</title>
 </head>
 <body>
@@ -22,6 +22,7 @@
                 <label for="user">Kies een gebruiker:</label>
                 <select name="user" id="user" required>
                     <?php
+                        include("Logincheck.php");
                         include("DatabaseConnection.php");
 
                         // Fetch users from the database

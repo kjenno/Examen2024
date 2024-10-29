@@ -1,13 +1,11 @@
 <?php
-// Start sessie om gebruiker in te loggen
-session_start();
 
 include("DatabaseConnection.php");
 
-// Verwerk het formulier als het is verzonden via POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+// Verwerk het formulier als het is verzonden via GET
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'], $_GET['password'])) {
+    $email = trim($_GET['email']);
+    $password = trim($_GET['password']);
 
     // Controleer of het e-mailadres in de database staat
     $stmt = $conn->prepare("SELECT Uuid, Admin, Password FROM user WHERE Email = ?");
@@ -22,10 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Controleer of het ingevoerde wachtwoord overeenkomt
         if (password_verify($password, $hashed_password)) {
-            // Sla de gebruiker id op in de sessie
-            $_SESSION['user_id'] = $id;
-            $_SESSION['admin_id'] = $Admin;
-            header("Location: klant-pagina.php"); // Verwijs naar een beveiligde pagina
+            session_start();
+            $_SESSION['id'] = $id;
+            $_SESSION['loggedin'] = true;
+            if ($Admin == 2) {
+                header("Location: klant-pagina.php?id=$id");
+            } 
+            elseif ($Admin == 1) {
+                header("Location: admin-right-pagina.php?id=$id");
+            }
+            
             exit();
         } else {
             $error_message = "Onjuist wachtwoord.";
@@ -75,8 +79,8 @@ $conn->close();
                         Voer je gegevens hieronder in om in te loggen.
                     </div>
                 </div>
-                <!-- Het formulier stuurt gegevens naar deze zelfde pagina (login.php) -->
-                <form class="form2" action="login.php" method="post">
+                <!-- Het formulier stuurt gegevens naar deze zelfde pagina (login.php) via GET -->
+                <form class="form2" action="login.php" method="get">
                     <div class="input8">
                         <label for="email" class="email2">Email*</label>
                         <input id="email" class="typedefault-alternatefalse7" type="email" name="email" required>
@@ -91,6 +95,7 @@ $conn->close();
                                 <div class="button13">Inloggen</div>
                             </button>
                         </div>
+                        <a href="./registreren.php" class="link">Geen Account?</a>
                         <a href="./wachtwoord-vergeten.php" class="link">Wachtwoord vergeten?</a>
                     </div>
                 </form>
@@ -106,4 +111,3 @@ $conn->close();
     </div>
 </body>
 </html>
-
