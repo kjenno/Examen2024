@@ -17,9 +17,9 @@
       <section class="scrollable-container">
         <div class="pdf-container">
           <?php
-            session_start();
-            $uuid = $_SESSION['user_id'];
             include("DatabaseConnection.php");
+            include("Logincheck.php");
+            $uuid = isset($_GET['id']) ? $_GET['id'] : null;
             $stmt = $conn->prepare("SELECT PDFName, PDFId, BillDate FROM bills WHERE Uuid = ?");
             $stmt->bind_param("s", $uuid);  // Bind the user ID to the query
             $stmt->execute();

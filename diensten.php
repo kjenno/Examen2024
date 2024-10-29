@@ -169,7 +169,6 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <input class="typedefault-alternatefalse" type="text" />
               </div>
             </div>
-
             <div class="inputs">
               <div class="input">
                 <div class="first-name">E-mail</div>

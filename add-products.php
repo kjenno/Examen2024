@@ -1,6 +1,7 @@
 <?php
 // Include de database connectie
 include("B_add-products.php");
+include("Logincheck.php");
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,6 @@
+<?php
+include("Logincheck.php");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -140,7 +143,7 @@
                     </div>
                   </div>
                   <div class="action">
-                    <a href="admin-data.php" class="stylelink-smallfalse-alter2">
+                    <a href="factuur.php" class="stylelink-smallfalse-alter2">
                       <div class="link-text4">Gegevens</div>
                       <img
                         class="icon-chevron-right"

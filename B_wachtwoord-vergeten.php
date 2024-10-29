@@ -7,7 +7,6 @@ if (isset($_POST['submit'])) {
     $action = $_POST['action'];
 
     if ($action == 'request_code') {
-        // Handle code request
         $email = $_POST['email'];
         $MSubject = "Wachtwoord Vergeten";
         $_SESSION['code'] = mt_rand(100000, 999999);
@@ -15,7 +14,7 @@ if (isset($_POST['submit'])) {
         $MText = $_SESSION['code'];
         $File = "";
         MailSender($email, $MSubject, $MText, $File);
-        header("Location: wachtwoord-vergeten2.php");
+        header("Location: wachtwoord-instellen.php");
 
     } elseif ($action == 'reset_password') {
         // Handle password reset
@@ -34,12 +33,14 @@ if (isset($_POST['submit'])) {
                 $stmt->close();
                 $conn->close();
                 session_unset();
-                echo "Wachtwoord succesvol gewijzigd.";
+                header("Login.php");
             } else {
-                echo "Wachtwoorden komen niet overeen.";
+                $_SESSION['error'] = "Wachtwoorden komen niet overeen.";
+                header("wachtwoord-instellen.php");
             }
         } else {
-            echo "Verkeerde code.";
+            $_SESSION['error'] = "Code onjuist.";
+            header("wachtwoord-instellen.php");
         }
     }
 }
