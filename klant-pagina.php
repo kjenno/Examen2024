@@ -19,18 +19,18 @@
           <?php
             include("DatabaseConnection.php");
             include("Logincheck.php");
-            $uuid = isset($_GET['id']) ? $_GET['id'] : null;
-            $stmt = $conn->prepare("SELECT PDFName, PDFId, BillDate FROM bills WHERE Uuid = ?");
-            $stmt->bind_param("s", $uuid);  // Bind the user ID to the query
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $Uuid = isset($_GET['id']) ? $_GET['id'] : null;
+            $Stmt = $Conn->prepare("SELECT PDFName, PDFId, BillDate FROM bills WHERE Uuid = ?");
+            $Stmt->bind_param("s", $uuid);  // Bind the user ID to the query
+            $Stmt->execute();
+            $Result = $Stmt->get_result();
 
-            if ($result) {
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $OldName = $row['PDFName']; // Display name for the link
-                        $NewName = $row['PDFId'];    // This is the actual filename to open
-                        $Date = $row['BillDate'];
+            if ($Result) {
+                if ($Result->num_rows > 0) {
+                    while ($Row = $result->fetch_assoc()) {
+                        $OldName = $Row['PDFName']; // Display name for the link
+                        $NewName = $Row['PDFId'];    // This is the actual filename to open
+                        $Date = $Row['BillDate'];
                         // Create the button-style link
                         echo '<div class="pdf-item">';
                         echo '<a href="Uploads/' . htmlspecialchars($NewName) . '" target="_blank">' . htmlspecialchars($OldName) . '</a>';
@@ -42,9 +42,9 @@
                     echo '<p>No PDFs found.</p>';
                 }
             } else {
-                echo "Error: " . $conn->error;
+                echo "Error: " . $Conn->error;
             }
-            $conn->close();
+            $Conn->close();
           ?>
         </div>
       </section>
@@ -53,44 +53,5 @@
     <footer>
       &copy; 2024 Facturen Pagina. Alle rechten voorbehouden.
     </footer>
-
-    <script>
-      var colorDark = document.getElementById("colorDark");
-      if (colorDark) {
-        colorDark.addEventListener("click", function (e) {
-          window.location.href = "./index.html";
-        });
-      }
-
-      var linkText1 = document.getElementById("linkText1");
-      if (linkText1) {
-        linkText1.addEventListener("click", function (e) {
-          window.location.href = "./diensten.html";
-        });
-      }
-
-      var linkText2 = document.getElementById("linkText2");
-      if (linkText2) {
-        linkText2.addEventListener("click", function (e) {
-          window.location.href = "./projecten.html";
-        });
-      }
-
-      var navLinkDropdown = document.getElementById("navLinkDropdown");
-      if (navLinkDropdown) {
-        navLinkDropdown.addEventListener("click", function (e) {
-          window.location.href = "./planning.html";
-        });
-      }
-
-      var styleSecondarySmallTrueA = document.getElementById(
-        "styleSecondarySmallTrueA"
-      );
-      if (styleSecondarySmallTrueA) {
-        styleSecondarySmallTrueA.addEventListener("click", function (e) {
-          window.location.href = "./login.html";
-        });
-      }
-    </script>
   </body>
 </html>

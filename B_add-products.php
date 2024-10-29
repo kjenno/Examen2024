@@ -1,130 +1,130 @@
 <?php
 include("DatabaseConnection.php");
 
-$gekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
+$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
 
-$producten = [];
+$Producten = [];
 
-$categorieQuery = "SELECT DISTINCT categorie FROM products";
-$categorieResult = $conn->query($categorieQuery);
-$categorieen = [];
+$CategorieQuery = "SELECT DISTINCT categorie FROM products";
+$CategorieResult = $Conn->query($CategorieQuery);
+$Categorieen = [];
 
-if ($categorieResult) {
-    while ($row = $categorieResult->fetch_assoc()) {
-        $categorieen[] = $row; 
+if ($CategorieResult) {
+    while ($Row = $CategorieResult->fetch_assoc()) {
+        $Categorieen[] = $Row; 
     }
 }
 
 
 if (isset($_POST['verwijder_product'])) {
-    $productNaam = $_POST['product_naam']; 
-    $deleteQuery = "DELETE FROM products WHERE naam = ?";
-    $stmtDelete = $conn->prepare($deleteQuery);
-    if ($stmtDelete) {
-        $stmtDelete->bind_param("s", $productNaam);
-        $stmtDelete->execute();
-        $stmtDelete->close();
+    $ProductNaam = $_POST['product_naam']; 
+    $DeleteQuery = "DELETE FROM products WHERE naam = ?";
+    $StmtDelete = $Conn->prepare($DeleteQuery);
+    if ($StmtDelete) {
+        $StmtDelete->bind_param("s", $ProductNaam);
+        $StmtDelete->execute();
+        $StmtDelete->close();
     } else {
-        echo "Fout bij het voorbereiden van de verwijderquery: " . $conn->error;
+        echo "Fout bij het voorbereiden van de verwijderquery: " . $Conn->error;
     }
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
    
-    $productNaam = $_POST['product_naam'];
-    $productCategorie = $_POST['product_categorie'];
-    $productAantal = $_POST['product_aantal']; 
+    $ProductNaam = $_POST['product_naam'];
+    $ProductCategorie = $_POST['product_categorie'];
+    $ProductAantal = $_POST['product_aantal']; 
 
   
     if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) {
-        $allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  
-        $fileInfo = pathinfo($_FILES['product_afbeelding']['name']);
-        $fileExt = strtolower($fileInfo['extension']);
+        $Allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  
+        $FileInfo = pathinfo($_FILES['product_afbeelding']['name']);
+        $FileExt = strtolower($FileInfo['extension']);
 
-        if (in_array($fileExt, $allowed)) {
+        if (in_array($FileExt, $Allowed)) {
             // Definieer de directory om bestanden op te slaan
-            $uploadDir = 'uploads/';
+            $UploadDir = 'uploads/';
             // Creëer een unieke naam voor het bestand om naamconflicten te vermijden
-            $uploadFile = $uploadDir . uniqid() . '.' . $fileExt;
+            $UploadFile = $UploadDir . uniqid() . '.' . $FileExt;
 
             // Verplaats het bestand naar de servermap
-            if (move_uploaded_file($_FILES['product_afbeelding']['tmp_name'], $uploadFile)) {
+            if (move_uploaded_file($_FILES['product_afbeelding']['tmp_name'], $UploadFile)) {
                 echo "Bestand is succesvol geüpload.";
-                $productAfbeelding = basename($uploadFile);  // Alleen de bestandsnaam opslaan in de database
+                $ProductAfbeelding = basename($UploadFile);  // Alleen de bestandsnaam opslaan in de database
             } else {
                 echo "Fout bij het uploaden van het bestand.";
-                $productAfbeelding = null;
+                $ProductAfbeelding = null;
             }
         } else {
             echo "Ongeldig bestandstype. Alleen PDF, JPG, JPEG en WEBP zijn toegestaan.";
-            $productAfbeelding = null;
+            $ProductAfbeelding = null;
         }
     } else {
         echo "Geen bestand geüpload of er is een fout opgetreden.";
-        $productAfbeelding = null;
+        $ProductAfbeelding = null;
     }
 
     // Controleer of het product al bestaat in de database
-    $checkQuery = "SELECT naam FROM products WHERE naam = ?";
-    $stmtCheck = $conn->prepare($checkQuery);
-    if ($stmtCheck) {
-        $stmtCheck->bind_param("s", $productNaam);
-        $stmtCheck->execute();
-        $stmtCheck->store_result();
-        if ($stmtCheck->num_rows > 0) {
+    $CheckQuery = "SELECT naam FROM products WHERE naam = ?";
+    $StmtCheck = $conn->prepare($CheckQuery);
+    if ($StmtCheck) {
+        $StmtCheck->bind_param("s", $ProductNaam);
+        $StmtCheck->execute();
+        $StmtCheck->store_result();
+        if ($StmtCheck->num_rows > 0) {
             echo "Dit product bestaat al.";
         } else {
             // Voeg het product toe aan de database
-            if ($productAfbeelding) {
-                $query = "INSERT INTO products (naam, categorie, aantal, foto) VALUES (?, ?, ?, ?)";
-                $stmt = $conn->prepare($query);
-                if ($stmt) {
-                    $stmt->bind_param("ssis", $productNaam, $productCategorie, $productAantal, $productAfbeelding);
-                    $stmt->execute();
-                    $stmt->close();
+            if ($ProductAfbeelding) {
+                $Query = "INSERT INTO products (naam, categorie, aantal, foto) VALUES (?, ?, ?, ?)";
+                $Stmt = $Conn->prepare($query);
+                if ($Stmt) {
+                    $Stmt->bind_param("ssis", $ProductNaam, $ProductCategorie, $ProductAantal, $ProductAfbeelding);
+                    $Stmt->execute();
+                    $Stmt->close();
                     echo "<p>Product succesvol toegevoegd!</p>";
 
                     // Redirect naar dezelfde pagina om dubbele indiening te voorkomen
                     header("Location: " . $_SERVER['PHP_SELF']);
                     exit(); // Stop verdere uitvoering om dubbele invoeging te voorkomen
                 } else {
-                    echo "Fout bij het voorbereiden van de invoegquery: " . $conn->error;
+                    echo "Fout bij het voorbereiden van de invoegquery: " . $Conn->error;
                 }
             }
         }
-        $stmtCheck->close();
+        $StmtCheck->close();
     }
 }
 
 // Als er een categorie is geselecteerd, haal de producten in die categorie op
-if ($gekozenCategorie) {
-    $query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
-    $stmt = $conn->prepare($query);
-    if ($stmt) {
-        $stmt->bind_param("s", $gekozenCategorie);
-        $stmt->execute();
-        $result = $stmt->get_result();
+if ($GekozenCategorie) {
+    $Query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
+    $Stmt = $Conn->prepare($Query);
+    if ($Stmt) {
+        $Stmt->bind_param("s", $GekozenCategorie);
+        $Stmt->execute();
+        $Result = $Stmt->get_result();
     } else {
-        echo "Fout bij het voorbereiden van de query: " . $conn->error;
+        echo "Fout bij het voorbereiden van de query: " . $Conn->error;
         exit;
     }
 } else {
     // Als er geen categorie is geselecteerd, haal alle producten op
-    $query = "SELECT naam, aantal, foto FROM products";
-    $result = $conn->query($query);
+    $Query = "SELECT naam, aantal, foto FROM products";
+    $Result = $Conn->query($Query);
 }
 
 // Controleer of de query succesvol is uitgevoerd
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $producten[] = $row; // Voeg producten toe aan de array
+if ($Result) {
+    while ($Row = $Result->fetch_assoc()) {
+        $Producten[] = $Row; // Voeg producten toe aan de array
     }
 } else {
-    echo "Fout bij het ophalen van de producten: " . $conn->error;
+    echo "Fout bij het ophalen van de producten: " . $Conn->error;
     exit;
 }
 
 // Sluit de verbinding
-$conn->close();
+$Conn->close();
 ?>

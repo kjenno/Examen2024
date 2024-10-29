@@ -1,31 +1,20 @@
 <?php
-// Database verbinding
-$host = 'localhost'; // je database host
-$db = 'hyperlightandsound'; // je database naam
-$user = 'root'; // je database gebruikersnaam
-$pass = ''; // je database wachtwoord
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Verbinding mislukt: " . $e->getMessage();
-}
+include("DatabaseConnection.php");
 
 // Haal categorieën op uit de database
-$categorieQuery = "SELECT DISTINCT categorie FROM products";
-$categorieStmt = $pdo->prepare($categorieQuery);
-$categorieStmt->execute();
-$categorieen = $categorieStmt->fetchAll(PDO::FETCH_ASSOC);
+$CategorieQuery = "SELECT DISTINCT categorie FROM products";
+$CategorieStmt = $pdo->prepare($CategorieQuery);
+$CategorieStmt->execute();
+$Categorieen = $CategorieStmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Haal producten op op basis van de gekozen categorie
-$gekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : 'Geluid'; // Standaard categorie is 'Geluid'
+$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : 'Geluid'; // Standaard categorie is 'Geluid'
 
-$sql = "SELECT naam, foto FROM products WHERE categorie = :categorie";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':categorie', $gekozenCategorie, PDO::PARAM_STR);
-$stmt->execute();
-$producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$Sql = "SELECT naam, foto FROM products WHERE categorie = :categorie";
+$Stmt = $pdo->prepare($Sql);
+$Stmt->bindParam(':categorie', $GekozenCategorie, PDO::PARAM_STR);
+$Stmt->execute();
+$producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -57,8 +46,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </a>
 
                 <nav class="column">
-                  <a href="./over-ons.php" class="link-text">Over Ons</a>
-                  <a href="#header54" class="link-text1">Diensten</a>
+                  <a href="./diensten.php" class="link-text1">Diensten</a>
                   <a href="./projecten.php" class="link-text2">Projecten</a>
                   <a href="./planning.php" class="link-text3">Planning</a>
                 </nav>
@@ -81,9 +69,9 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <form method="GET" class="category-selector">
           <label for="categorie">Kies een categorie:</label>
           <select name="categorie" id="categorie" onchange="this.form.submit()">
-            <?php foreach ($categorieen as $categorie): ?>
-              <option value="<?php echo htmlspecialchars($categorie['categorie']); ?>" <?php echo ($categorie['categorie'] == $gekozenCategorie) ? 'selected' : ''; ?>>
-                <?php echo htmlspecialchars($categorie['categorie']); ?>
+            <?php foreach ($Categorieen as $Categorie): ?>
+              <option value="<?php echo htmlspecialchars($Categorie['categorie']); ?>" <?php echo ($Categorie['categorie'] == $GekozenCategorie) ? 'selected' : ''; ?>>
+                <?php echo htmlspecialchars($Categorie['categorie']); ?>
               </option>
             <?php endforeach; ?>
           </select>
@@ -94,7 +82,7 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="section-title">
               <div class="tagline-wrapper"></div>
               <div class="content2">
-                <h1 class="heading">Producten in categorie: <?php echo htmlspecialchars($gekozenCategorie); ?></h1>
+                <h1 class="heading">Producten in categorie: <?php echo htmlspecialchars($GekozenCategorie); ?></h1>
                 <div class="text">Bekijk onze producten in de geselecteerde categorie.</div>
               </div>
             </div>
@@ -102,18 +90,18 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </div>
 
           <div class="content3">
-            <?php if (count($producten) > 0): ?>
-              <?php foreach ($producten as $product): ?>
+            <?php if (count($Producten) > 0): ?>
+              <?php foreach ($Producten as $Product): ?>
                 <div class="product">
                   <img
                     class="placeholder-image-icon"
                     loading="lazy"
-                    alt="<?php echo htmlspecialchars($product['naam']); ?>"
-                    src="<?php echo htmlspecialchars($product['foto']); ?>"
+                    alt="<?php echo htmlspecialchars($Product['naam']); ?>"
+                    src="<?php echo htmlspecialchars($Product['foto']); ?>"
                   />
                   <div class="content4">
                     <div class="header">
-                      <div class="heading1"><?php echo htmlspecialchars($product['naam']); ?></div>
+                      <div class="heading1"><?php echo htmlspecialchars($Product['naam']); ?></div>
                       <div class="product-description">Variant</div>
                     </div>
                     <div class="price">Vraag uw offerte aan</div>
@@ -184,12 +172,6 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <div class="first-name">Bericht</div>
               <textarea class="typedefault-alternatefalse" placeholder="Typ hier je bericht..."></textarea>
             </div>
-
-            <div class="selectedfalse-alternatefals">
-              <input type="checkbox" class="checkbox" />
-              <label class="label">Ik accepteer de voorwaarden</label>
-            </div>
-
             <button class="styleprimary-smallfalse-al">
               <div class="button1">Verzend</div>
             </button>
@@ -204,14 +186,6 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <img class="color-dark1" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
             </div>
           </a>
-
-          <div class="links">
-            <a href="./over-ons.php" class="link-one">Over ons</a>
-            <a href="#header54" class="link-one">Diensten</a>
-            <a href="./projecten.php" class="link-one">Projecten</a>
-            <a href="./contact.php" class="tagline">Contact</a>
-            <a href="./blog.php" class="link-one">Blog</a>
-          </div>
         </div>
       </section>
     </div>

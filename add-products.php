@@ -84,9 +84,9 @@ include("Logincheck.php");
                         <label for="categorie">Kies een categorie:</label>
                         <select name="categorie" id="categorie" onchange="this.form.submit()">
                             <option value="">Selecteer een categorie</option> <!-- Default optie -->
-                            <?php foreach ($categorieen as $categorie): ?>
-                                <option value="<?php echo htmlspecialchars($categorie['categorie']); ?>" <?php echo ($categorie['categorie'] == $gekozenCategorie) ? 'selected' : ''; ?>>
-                                    <?php echo htmlspecialchars($categorie['categorie']); ?>
+                            <?php foreach ($Categorieen as $Categorie): ?>
+                                <option value="<?php echo htmlspecialchars($Categorie['categorie']); ?>" <?php echo ($Categorie['categorie'] == $gekozenCategorie) ? 'selected' : ''; ?>>
+                                    <?php echo htmlspecialchars($Categorie['categorie']); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
@@ -94,24 +94,24 @@ include("Logincheck.php");
                 </div>
             </div>
             <div class="content58">
-    <?php if (count($producten) > 0): ?>
-        <?php foreach ($producten as $product): ?>
+    <?php if (count($Producten) > 0): ?>
+        <?php foreach ($Producten as $Product): ?>
             <div class="product-card">
                 <div class="product-image">
                     <img
                         class="product-photo"
                         loading="lazy"
-                        alt="<?php echo htmlspecialchars($product['naam']); ?>"
-                        src="uploads/<?php echo htmlspecialchars($product['foto']); ?>"
+                        alt="<?php echo htmlspecialchars($Product['naam']); ?>"
+                        src="uploads/<?php echo htmlspecialchars($Product['foto']); ?>"
                     />
                 </div>
                 <div class="product-info">
-                    <h2 class="product-name"><?php echo htmlspecialchars($product['naam']); ?></h2>
-                    <p class="product-stock"><?php echo htmlspecialchars($product['aantal']); ?> in voorraad</p>
+                    <h2 class="product-name"><?php echo htmlspecialchars($Product['naam']); ?></h2>
+                    <p class="product-stock"><?php echo htmlspecialchars($Product['aantal']); ?> in voorraad</p>
                 </div>
                 <!-- Verwijder formulier -->
                 <form method="POST" action="" class="delete-form">
-                    <input type="hidden" name="product_naam" value="<?php echo htmlspecialchars($product['naam']); ?>">
+                    <input type="hidden" name="product_naam" value="<?php echo htmlspecialchars($Product['naam']); ?>">
                     <button type="submit" name="verwijder_product" class="delete-button">Verwijder</button>
                 </form>
             </div>
@@ -138,6 +138,5 @@ include("Logincheck.php");
             </div>
         </section>
     </div>
-
 </body>
 </html>

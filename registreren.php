@@ -5,37 +5,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("DatabaseConnection.php");
 
     // Ontvang de gegevens van het formulier
-    $naam = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $wachtwoord = trim($_POST['password']);
+    $Name = trim($_POST['name']);
+    $Email = trim($_POST['email']);
+    $Password = trim($_POST['password']);
     $Admin = '2'; // Standaardwaarde voor Admin
 
     // Hash het wachtwoord voor veilige opslag
-    $hashed_password = password_hash($wachtwoord, PASSWORD_DEFAULT);
+    $HashedPassword = password_hash($Password, PASSWORD_DEFAULT);
 
     // Genereer een unieke UUID voor de gebruiker
-    $uuid = uniqid('', true);
+    $Uuid = uniqid('', true);
 
     // Controleer of het e-mailadres al bestaat
     $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s", $Email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $melding = "Het e-mailadres is al geregistreerd.";
+        $Message = "Het e-mailadres is al geregistreerd.";
     } else {
         // Voeg de nieuwe gebruiker toe aan de database
         $stmt = $conn->prepare("INSERT INTO user (Uuid, Admin, Name, Email, Password) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $uuid, $Admin, $naam, $email, $hashed_password);
+        $stmt->bind_param("sssss", $Uuid, $Admin, $Name, $Email, $HashedPassword);
 
         if ($stmt->execute()) {
-            $melding = "Registratie succesvol! U kunt nu inloggen.";
+            $Message = "Registratie succesvol! U kunt nu inloggen.";
             // Direct doorverwijzen naar de inlogpagina na succesvolle registratie
             header("Location: login.php");
             exit();
         } else {
-            $melding = "Fout bij het registreren: " . $stmt->error;
+            $Message = "Fout bij het registreren: " . $stmt->error;
         }
     }
 
@@ -118,9 +118,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
 
                 <!-- Meldingen -->
-                <?php if (isset($melding)): ?>
-                    <div class="melding" style="text-align: center; color: red;">
-                        <?php echo htmlspecialchars($melding); ?>
+                <?php if (isset($Message)): ?>
+                    <div class="Message" style="text-align: center; color: red;">
+                        <?php echo htmlspecialchars($Message); ?>
                     </div>
                 <?php endif; ?>
             </div>

@@ -4,45 +4,45 @@ include("DatabaseConnection.php");
 
 // Verwerk het formulier als het is verzonden via GET
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'], $_GET['password'])) {
-    $email = trim($_GET['email']);
-    $password = trim($_GET['password']);
+    $Email = trim($_GET['email']);
+    $Password = trim($_GET['password']);
 
     // Controleer of het e-mailadres in de database staat
-    $stmt = $conn->prepare("SELECT Uuid, Admin, Password FROM user WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    $Stmt = $Conn->prepare("SELECT Uuid, Admin, Password FROM user WHERE Email = ?");
+    $Stmt->bind_param("s", $Email);
+    $Stmt->execute();
+    $Stmt->store_result();
 
     // Controleer of de gebruiker bestaat
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $Admin, $hashed_password);
-        $stmt->fetch();
+    if ($Stmt->num_rows > 0) {
+        $Stmt->bind_result($Id, $Admin, $HashedPassword);
+        $Stmt->fetch();
 
         // Controleer of het ingevoerde wachtwoord overeenkomt
-        if (password_verify($password, $hashed_password)) {
+        if (password_verify($Password, $HashedPassword)) {
             session_start();
-            $_SESSION['id'] = $id;
+            $_SESSION['id'] = $Id;
             $_SESSION['loggedin'] = true;
             if ($Admin == 2) {
-                header("Location: klant-pagina.php?id=$id");
+                header("Location: klant-pagina.php?id=$Id");
             } 
             elseif ($Admin == 1) {
-                header("Location: admin-right-pagina.php?id=$id");
+                header("Location: admin-right-pagina.php?id=$Id");
             }
             
             exit();
         } else {
-            $error_message = "Onjuist wachtwoord.";
+            $ErrorMessage = "Onjuist wachtwoord.";
         }
     } else {
-        $error_message = "Geen account gevonden met dit e-mailadres.";
+        $ErrorMessage = "Geen account gevonden met dit e-mailadres.";
     }
 
-    $stmt->close();
+    $Stmt->close();
 }
 
 // Sluit de databaseconnectie
-$conn->close();
+$Conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -101,12 +101,11 @@ $conn->close();
                 </form>
                 <!-- Toon eventuele foutmeldingen -->
                 <?php
-                if (!empty($error_message)) {
-                    echo "<p style='color: red; text-align: center;'>$error_message</p>";
+                if (!empty($ErrorMessage)) {
+                    echo "<p style='color: red; text-align: center;'>$ErrorMessage</p>";
                 }
                 ?>
             </div>
-            <div class="footer1"></div>
         </section>
     </div>
 </body>

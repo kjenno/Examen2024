@@ -2,10 +2,10 @@
 session_start();
 $_SESSION['loggedin'];
 $_SESSION['id'];
-$urlid = isset($_GET['id']) ? $_GET['id'] : null;
-$loggedin = $_SESSION['loggedin'];
-$id = $_SESSION['id'];
-if($loggedin != true || $id != $urlid)
+$UrlId = isset($_GET['id']) ? $_GET['id'] : null;
+$Loggedin = $_SESSION['loggedin'];
+$Id = $_SESSION['id'];
+if($Loggedin != true || $Id != $UrlId)
 {
     header("location: login.php");
 }

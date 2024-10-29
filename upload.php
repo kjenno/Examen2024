@@ -6,58 +6,58 @@ include("mail.php");
 if (isset($_POST['submit'])) 
 {
 
-    $file = $_FILES['file'];
+    $File = $_FILES['File'];
     $uuid = $_POST['user'];
-    $fileName = $file['name'];
-    $fileTmpName = $file['tmp_name'];
-    $fileSize = $file['size'];
-    $fileError = $file['error'];
-    $fileType = $file['type'];
+    $FileName = $File['name'];
+    $FileTmpName = $File['tmp_name'];
+    $FileSize = $File['size'];
+    $FileError = $File['error'];
+    $FileType = $File['type'];
 
 
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
+    $FileExt = explode('.', $FileName);
+    $FileActualExt = strtolower(end($F));
 
 
-    $allowed = array('pdf', 'jpg', 'jpeg', 'png');
+    $Allowed = array('pdf', 'jpg', 'jpeg', 'png');
 
 
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 1000000) {
-                $newFileName = uniqid('', true) . "." . $fileActualExt;
-                $fileDestination = 'Uploads/' . $newFileName;
-                move_uploaded_file($fileTmpName, $fileDestination);
-                $stmt = $conn->prepare("INSERT INTO bills (uuid, PDFId, PDFName) VALUES (?, ?, ?)");
-                $stmt->bind_param("sss", $uuid, $newFileName, $fileName);
-                $stmt->execute();
+    if (in_array($FileActualExt, $Allowed)) {
+        if ($FileError === 0) {
+            if ($FileSize < 1000000) {
+                $NewFileName = uniqid('', true) . "." . $FileActualExt;
+                $FileDestination = 'Uploads/' . $NewFileName;
+                move_uploaded_File($FileTmpName, $FileDestination);
+                $Stmt = $Conn->prepare("INSERT INTO bills (uuid, PDFId, PDFName) VALUES (?, ?, ?)");
+                $Stmt->bind_param("sss", $Uuid, $NewFileName, $FileName);
+                $Stmt->execute();
 
-                $stmt = $conn->prepare("SELECT Email FROM User WHERE Uuid = ?");
-                $stmt->bind_param("s", $uuid); // Assuming $uuid is a string
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $row = $result->fetch_assoc();
+                $Stmt = $Conn->prepare("SELECT Email FROM User WHERE Uuid = ?");
+                $Stmt->bind_param("s", $Uuid); // Assuming $uuid is a string
+                $Stmt->execute();
+                $Result = $Stmt->get_result();
+                $row = $Result->fetch_assoc();
                 $ReceiverMail = $row['Email'];
                 $MSubject = "Factuur";
                 $MText = ".";
-                MailSender($ReceiverMail,$MSubject,$MText,$fileDestination);
+                MailSender($ReceiverMail,$MSubject,$MText,$FileDestination);
 
                 header("Location: factuur.php");
                 exit();
             }   
             else 
             {
-                echo "The file size was too big.";
+                echo "The File size was too big.";
             }
         } 
         else 
         {
-            echo "There was an error when uploading the file.";
+            echo "There was an error when uploading the File.";
         }
     } 
     else 
     {
-        echo "You cannot upload files of this type.";
+        echo "You cannot upload Files of this type.";
     }
 } 
 else 

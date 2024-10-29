@@ -45,16 +45,6 @@
               Bij Hyper Light and Sound brengen we licht en geluid tot leven. Ontdek onze professionele techniek en laat je betoveren.
             </div>
           </div>
-
-          <div class="actions3">
-            <a href="#frameSection" class="styleprimary-smallfalse-al4">
-              <div class="button31">Meer</div>
-            </a>
-
-            <a href="login.php" class="stylesecondary-smallfalse2">
-              <div class="button30">Inloggen</div>
-            </a>
-          </div>
         </div>
         <div class="image"></div>
       </section>

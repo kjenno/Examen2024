@@ -26,18 +26,18 @@
                         include("DatabaseConnection.php");
 
                         // Fetch users from the database
-                        $sql = "SELECT uuid, name FROM user";
-                        $result = $conn->query($sql);
+                        $Sql = "SELECT uuid, name FROM user";
+                        $Result = $Conn->query($Sql);
 
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo '<option value="' . htmlspecialchars($row['uuid']) . '">' . htmlspecialchars($row['name']) . '</option>';
+                        if ($Result->num_rows > 0) {
+                            while ($Row = $Result->fetch_assoc()) {
+                                echo '<option value="' . htmlspecialchars($Row['uuid']) . '">' . htmlspecialchars($Row['name']) . '</option>';
                             }
                         } else {
                             echo '<option value="">Geen gebruikers beschikbaar</option>';
                         }
 
-                        $conn->close();
+                        $Conn->close();
                     ?>
                 </select><br>
                 
@@ -49,15 +49,15 @@
             <div class="pdf-container">
                 <?php
                     include("DatabaseConnection.php");
-                    $sql = "SELECT PDFName, PDFId, BillDate FROM bills";
-                    $result = $conn->query($sql);
+                    $Sql = "SELECT PDFName, PDFId, BillDate FROM bills";
+                    $Result = $conn->query($Sql);
 
-                    if ($result) {
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $OldName = $row['PDFName']; // Display name for the link
-                                $NewName = $row['PDFId'];    // This is the actual filename to open
-                                $Date = $row['BillDate'];
+                    if ($Result) {
+                        if ($Result->num_rows > 0) {
+                            while ($Row = $Result->fetch_assoc()) {
+                                $OldName = $Row['PDFName']; // Display name for the link
+                                $NewName = $Row['PDFId'];    // This is the actual filename to open
+                                $Date = $Row['BillDate'];
                                 // Create the button-style link
                                 echo '<div class="pdf-item">';
                                 echo '<a href="Uploads/' . htmlspecialchars($NewName) . '" target="_blank">' . htmlspecialchars($OldName) . '</a>';
@@ -69,9 +69,9 @@
                             echo '<p>No PDFs found.</p>';
                         }
                     } else {
-                        echo "Error: " . $conn->error;
+                        echo "Error: " . $Conn->error;
                     }
-                    $conn->close();
+                    $Conn->close();
                 ?>
             </div>
         </section>
