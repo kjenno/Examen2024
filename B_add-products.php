@@ -1,26 +1,23 @@
 <?php
 include("DatabaseConnection.php");
 
-// Controleer of er een categorie is geselecteerd
 $gekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
 
-// Maak array voor producten
 $producten = [];
 
-// Haal categorieën op uit de database
 $categorieQuery = "SELECT DISTINCT categorie FROM products";
 $categorieResult = $conn->query($categorieQuery);
 $categorieen = [];
 
 if ($categorieResult) {
     while ($row = $categorieResult->fetch_assoc()) {
-        $categorieen[] = $row; // Voeg categorieën toe aan de array
+        $categorieen[] = $row; 
     }
 }
 
-// Verwijder een product als er een verwijderverzoek is
+
 if (isset($_POST['verwijder_product'])) {
-    $productNaam = $_POST['product_naam']; // Verkrijg de naam van het product
+    $productNaam = $_POST['product_naam']; 
     $deleteQuery = "DELETE FROM products WHERE naam = ?";
     $stmtDelete = $conn->prepare($deleteQuery);
     if ($stmtDelete) {
@@ -32,16 +29,16 @@ if (isset($_POST['verwijder_product'])) {
     }
 }
 
-// Voeg een nieuw product toe als het formulier is ingediend
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
-    // Verkrijg de productgegevens uit het formulier
+   
     $productNaam = $_POST['product_naam'];
     $productCategorie = $_POST['product_categorie'];
-    $productAantal = $_POST['product_aantal']; // Dit is nu het aantal
+    $productAantal = $_POST['product_aantal']; 
 
-    // Controleer of er een bestand is geüpload
+  
     if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) {
-        $allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  // Toegestane bestandstypen
+        $allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  
         $fileInfo = pathinfo($_FILES['product_afbeelding']['name']);
         $fileExt = strtolower($fileInfo['extension']);
 
