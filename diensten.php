@@ -1,5 +1,6 @@
 <?php
 include("DatabaseConnection.php");
+include("offerte.php");
 
 // Haal categorieën op uit de database
 $CategorieQuery = "SELECT DISTINCT categorie FROM products";
@@ -14,7 +15,7 @@ $Sql = "SELECT naam, foto FROM products WHERE categorie = :categorie";
 $Stmt = $pdo->prepare($Sql);
 $Stmt->bindParam(':categorie', $GekozenCategorie, PDO::PARAM_STR);
 $Stmt->execute();
-$producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
+$Producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -146,36 +147,47 @@ $producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </div>
 
-          <div class="form">
-            <div class="inputs">
-              <div class="input">
-                <div class="first-name">Voornaam</div>
-                <input class="typedefault-alternatefalse" type="text" />
-              </div>
-              <div class="input">
-                <div class="first-name">Achternaam</div>
-                <input class="typedefault-alternatefalse" type="text" />
-              </div>
-            </div>
-            <div class="inputs">
-              <div class="input">
-                <div class="first-name">E-mail</div>
-                <input class="typedefault-alternatefalse" type="text" />
-              </div>
-              <div class="input">
-                <div class="first-name">Telefoonnummer</div>
-                <input class="typedefault-alternatefalse" type="text" />
-              </div>
-            </div>
-
-            <div class="input4">
-              <div class="first-name">Bericht</div>
-              <textarea class="typedefault-alternatefalse" placeholder="Typ hier je bericht..."></textarea>
-            </div>
-            <button class="styleprimary-smallfalse-al">
-              <div class="button1">Verzend</div>
-            </button>
+          <div class="feedback-message">
+            <?php if (!empty($feedbackMessage)): ?>
+              <p><?php echo $feedbackMessage; ?></p>
+            <?php endif; ?>
           </div>
+
+          <div class="form">
+          <form method="POST">
+    <div class="inputs">
+        <div class="input">
+            <div class="first-name">Voornaam</div>
+            <input class="typedefault-alternatefalse" type="text" name="voornaam" required />
+        </div>
+        <div class="input">
+            <div class="first-name">Achternaam</div>
+            <input class="typedefault-alternatefalse" type="text" name="achternaam" required />
+        </div>
+    </div>
+    <div class="inputs">
+        <div class="input">
+            <div class="first-name">E-mail</div>
+            <input class="typedefault-alternatefalse" type="email" name="email" required />
+        </div>
+        <div class="input">
+            <div class="first-name">Telefoonnummer</div>
+            <input class="typedefault-alternatefalse" type="text" name="telefoon" />
+        </div>
+    </div>
+    <div class="input4">
+        <div class="first-name">Bericht</div>
+        <textarea class="typedefault-alternatefalse" name="bericht" placeholder="Typ hier je bericht..." required></textarea>
+    </div>
+    <button type="submit" class="styleprimary-smallfalse-al">
+        <div class="button1">Verzend</div>
+    </button>
+</form>
+
+</div>
+
+
+
         </div>
       </section>
 
