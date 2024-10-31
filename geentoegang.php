@@ -99,7 +99,6 @@
             <a href="./index.php">
               <img class="color-dark19" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
             </a>
-
             <nav class="column20">
               <a href="over-ons.php" class="link-text36">Over Ons</a>
               <a href="diensten.php" class="link-text37">Diensten</a>
