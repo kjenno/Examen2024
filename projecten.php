@@ -37,7 +37,7 @@
               class="stylesecondary-smalltrue-a19"
               id="styleSecondarySmallTrueA"
             >
-              <a href="inloggen.html" class="button34">inloggen</a>
+              <a href="login.php" class="button34">inloggen</a>
             </div>
           </div>
         </div>

@@ -1,84 +1,165 @@
+/* Basisreset en lettertype */
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    background-color: #22365d; /* Dark background color */
-    color: #ffffff; /* Light text color */
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: #22365d; /* Donkere achtergrondkleur */
+  color: #ffffff; /* Lichte tekstkleur */
+  line-height: 1.6;
+}
 
-  main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the main content horizontally */
-  }
+/* Navigatiecontainer */
+.navbar {
+  display: flex;
+  justify-content: center; /* Center de nav links */
+  width: 100%;
+  padding: 15px 0;
+  background-color: #1a2b48; /* Donkere achtergrond voor nav */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .header-651 {
-    background-color: #000; /* Match the background color */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    color: #ffffff; /* White text for the header */
-  }
+/* Navigatie links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
 
-  .header-651 h1 {
-    font-size: 2rem;
-    margin: 0;
-  }
+/* Link styling */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+}
 
-  .header-651 p {
-    font-size: 1rem;
-  }
+/* Hover-effecten voor links */
+.nav-links a:hover {
+  background-color: #00aaff; /* Helderblauwe hoverkleur */
+  color: #ffffff;
+}
 
-  .scrollable-container {
-    padding: 20px;
-    max-height: 500px;
-    overflow-y: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Center the content inside */
-    background-color: transparent; /* Transparent so container blends with background */
-  }
+/* Hoofdstyling */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .pdf-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Grid layout with 2 columns */
-    gap: 20px 60px; /* Gap between the grid items */
-    justify-items: center; /* Center individual grid items */
-    align-items: start;
-    max-width: 800px; /* Set a max-width to prevent the container from being too wide */
-    width: 100%;
-    background-color: transparent; /* Transparent so it blends with the background */
-  }
+/* Header styling */
+.header-651 {
+  background-color: #000; /* Zwarte achtergrond voor de header */
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+}
 
-  .pdf-item {
-    text-align: center;
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    background-color: transparent; /* No background for pdf-item */
-  }
+.header-651 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
-  .pdf-item a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #00aaff; /* Blue link color */
-  }
+.header-651 p {
+  font-size: 1.25rem;
+}
 
-  .pdf-item hr {
-    border: 0;
-    border-top: 1px solid #4b5563; /* Gray color for horizontal rule */
-    margin: 10px 0;
-  }
+/* Scrollbare container voor PDF-items */
+.scrollable-container {
+  padding: 30px;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
 
-  footer {
-    background-color: #22365d; /* Same color as body background */
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    color: #ffffff; /* White text for the footer */
-  }
+/* PDF container */
+.pdf-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.pdf-item {
+  text-align: center;
+  padding: 15px;
+  background-color: #2c3b57; /* Achtergrondkleur voor PDF-items */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.pdf-item:hover {
+  transform: scale(1.05); /* Vergroten bij hover */
+}
+
+.pdf-item a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #00aaff; /* Kleur voor PDF-link */
+  font-weight: 600;
+}
+
+.pdf-item hr {
+  border: 0;
+  border-top: 1px solid #4b5563;
+  margin: 10px 0;
+}
+
+/* Styling voor de datum van de PDF */
+.pdf-date {
+  font-size: 0.9rem; /* Kleinere tekst voor datum */
+  color: #cfd8dc; /* Lichtere kleur voor datum */
+}
+
+/* Foutmelding styling */
+.error {
+  color: #ff4d4d; /* Rood voor foutmeldingen */
+}
+
+/* Geen PDF's gevonden styling */
+.no-pdfs {
+  color: #f0ad4e; /* Geel voor geen resultaten */
+}
+
+/* Footer styling */
+footer {
+  background-color: #1a2b48; /* Donkere achtergrond voor footer */
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* Logout button styling */
+.logout-button {
+  color: #ffffff; /* Witte tekstkleur */
+  background-color: #e74c3c; /* Rood voor de logout knop */
+  padding: 10px 15px; /* Ruimte rond de tekst */
+  border: none; /* Geen rand */
+  border-radius: 5px; /* Ronde hoeken */
+  text-decoration: none; /* Geen onderlijn */
+  font-size: 1rem; /* Tekstgrootte */
+  font-weight: 600; /* Vetgedrukt */
+  transition: background-color 0.3s ease; /* Overgangseffect */
+}
+
+/* Hover-effect voor logout knop */
+.logout-button:hover {
+  background-color: #c0392b; /* Donkerder rood bij hover */
+}
