@@ -1,7 +1,6 @@
 <?php
 // Include de database connectie
 include("B_add-products.php");
-include("Logincheck.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,24 +15,25 @@ include("Logincheck.php");
 <body>
     <div class="add-products">
         <section class="navbar-6-parent">
-            <header class="navbar-65">
-                <div class="content54">
-                    <div class="content55">
-                        <img class="color-dark15" loading="lazy" alt="" src="./public/color--dark.svg" id="colorDark" />
-                        <nav class="column14">
-                            <div class="details">Over Ons</div>
-                            <div class="link-text29">Diensten</div>
-                            <div class="link-text30" id="linkText2">Projecten</div>
-                            <div class="nav-link-dropdown7">
-                                <div class="link-text29">Planning</div>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="stylesecondary-smalltrue-a7">
-                        <div class="button15">uitloggen</div>
-                    </div>
+        <header class="navbar-65">
+        <div class="content54">
+            <div class="content55">
+             <img class="color-dark15" loading="lazy" alt="" src="./public/color--dark.svg" id="colorDark" />
+               <nav class="column14">
+                <a href="diensten.php" class="link-text29">Diensten</a>
+                <a href="projecten.php" class="link-text30" id="linkText2">Projecten</a>
+                <div class="nav-link-dropdown7">
+                    <a href="planning.php" class="link-text29">Planning</a>
                 </div>
-            </header>
+            </nav>
+         </div>
+        <div class="stylesecondary-smalltrue-a7">
+        <a href="logout.php" class="button15">uitloggen</a>
+
+      </div>
+      </div>
+    </header>
+
             <div class="header-542">
                 <h1 class="short-heading-here4">Product Beheer</h1>
                 <div class="lorem-ipsum-dolor10">Bekijk hier de planning van Hyperlight & Sound</div>

@@ -1,6 +1,3 @@
-<?php
-include("Logincheck.php");
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,9 +27,6 @@ include("Logincheck.php");
               </a>
 
               <nav class="column1">
-                <div class="link-text4">
-                  <a href="over-ons.php">Over Ons</a>
-                </div>
                 <div class="link-text5">
                   <a href="diensten.php">Diensten</a>
                 </div>
@@ -47,7 +41,7 @@ include("Logincheck.php");
               </nav>
             </div>
             <div class="stylesecondary-smalltrue-a1">
-              <div class="button2">Uitloggen</div>
+            <a href="logout.php" class="button15">uitloggen</a>
             </div>
           </div>
         </header>
