@@ -6,8 +6,8 @@ include("mail.php");
 if (isset($_POST['submit'])) 
 {
 
-    $File = $_FILES['File'];
-    $uuid = $_POST['user'];
+    $File = $_FILES['file'];
+    $Uuid = $_POST['user'];
     $FileName = $File['name'];
     $FileTmpName = $File['tmp_name'];
     $FileSize = $File['size'];
@@ -16,7 +16,7 @@ if (isset($_POST['submit']))
 
 
     $FileExt = explode('.', $FileName);
-    $FileActualExt = strtolower(end($F));
+    $FileActualExt = strtolower(end($FileExt));
 
 
     $Allowed = array('pdf', 'jpg', 'jpeg', 'png');
