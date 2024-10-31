@@ -4,7 +4,7 @@ include("DatabaseConnection.php");
 
 
 $Sql = "SELECT * FROM events ORDER BY event_date, event_time";
-$Result = $Conn->query($sql);
+$Result = $Conn->query($Sql);
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +96,7 @@ $Result = $Conn->query($sql);
                         echo '<p>Geen evenementen gepland.</p>';
                     }
 
-                    $conn->close();
+                    $Conn->close();
                     ?>
                 </div>
             </section>
