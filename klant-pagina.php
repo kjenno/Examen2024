@@ -21,13 +21,13 @@
             include("Logincheck.php");
             $Uuid = isset($_GET['id']) ? $_GET['id'] : null;
             $Stmt = $Conn->prepare("SELECT PDFName, PDFId, BillDate FROM bills WHERE Uuid = ?");
-            $Stmt->bind_param("s", $uuid);  // Bind the user ID to the query
+            $Stmt->bind_param("s", $Uuid);  // Bind the user ID to the query
             $Stmt->execute();
             $Result = $Stmt->get_result();
 
             if ($Result) {
                 if ($Result->num_rows > 0) {
-                    while ($Row = $result->fetch_assoc()) {
+                    while ($Row = $Result->fetch_assoc()) {
                         $OldName = $Row['PDFName']; // Display name for the link
                         $NewName = $Row['PDFId'];    // This is the actual filename to open
                         $Date = $Row['BillDate'];

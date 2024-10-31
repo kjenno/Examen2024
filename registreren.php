@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Uuid = uniqid('', true);
 
     // Controleer of het e-mailadres al bestaat
-    $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
+    $stmt = $Conn->prepare("SELECT * FROM user WHERE Email = ?");
     $stmt->bind_param("s", $Email);
     $stmt->execute();
     $stmt->store_result();
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Message = "Het e-mailadres is al geregistreerd.";
     } else {
         // Voeg de nieuwe gebruiker toe aan de database
-        $stmt = $conn->prepare("INSERT INTO user (Uuid, Admin, Name, Email, Password) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $Conn->prepare("INSERT INTO user (Uuid, Admin, Name, Email, Password) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $Uuid, $Admin, $Name, $Email, $HashedPassword);
 
         if ($stmt->execute()) {
