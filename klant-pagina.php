@@ -10,22 +10,12 @@
 <body>
     <main>
         <!-- Navigatie met logo -->
-        <div class="navbar">
-            <a href="./index.php">
-                <img class="color-dark19" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
-            </a>
-            <div class="nav-links">
-                <a href="diensten.php" class="link-text37">Diensten</a>
-                <a href="projecten.php" class="link-text38">Projecten</a>
-                <a href="planning.php" class="link-text38">Planning</a>
-                <a href="logout.php" class="logout-button">Uitloggen</a> <!-- Logout button -->
-            </div>
-        </div>
 
         <!-- Header -->
         <header class="header-651">
-            <h1>Bekijk hier uw facturen</h1>
+            <h1>Bekijk hier uw facturen</h1> 
             <p>Beheer eenvoudig uw facturen</p>
+            
         </header>
 
         <!-- Facturen sectie met scrollbare PDF-container -->
@@ -68,4 +58,3 @@
         &copy; 2024 Facturen Pagina. Alle rechten voorbehouden.
     </footer>
 </body>
-</html>

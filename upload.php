@@ -2,12 +2,12 @@
 include("DatabaseConnection.php");
 include("mail.php");
 
-
+$UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 if (isset($_POST['submit'])) 
 {
 
-    $File = $_FILES['File'];
-    $uuid = $_POST['user'];
+    $File = $_FILES['file'];
+    $Uuid = $_POST['user'];
     $FileName = $File['name'];
     $FileTmpName = $File['tmp_name'];
     $FileSize = $File['size'];
@@ -16,7 +16,7 @@ if (isset($_POST['submit']))
 
 
     $FileExt = explode('.', $FileName);
-    $FileActualExt = strtolower(end($F));
+    $FileActualExt = strtolower(end($FileExt));
 
 
     $Allowed = array('pdf', 'jpg', 'jpeg', 'png');
@@ -42,7 +42,7 @@ if (isset($_POST['submit']))
                 $MText = ".";
                 MailSender($ReceiverMail,$MSubject,$MText,$FileDestination);
 
-                header("Location: factuur.php");
+                header("Location: factuur.php?id=$UrlId");
                 exit();
             }   
             else 

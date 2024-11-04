@@ -19,7 +19,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             text-align: center;
         }
         
@@ -118,7 +117,7 @@
         <h1>Geen Toegang</h1>
         <p>Je hebt geen rechten om deze pagina te bekijken.</p>
         <p>Neem contact op met de beheerder als je denkt dat dit een vergissing is.</p>
-        <a href="/" class="back-button">Terug naar Home</a>
+        <a href="./index.php" class="back-button">Terug naar Home</a>
     </div>
 
 </body>

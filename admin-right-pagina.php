@@ -1,5 +1,6 @@
 <?php
 include("Logincheck.php");
+include("admincheck.php");
 $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 ?>
 <!DOCTYPE html>
