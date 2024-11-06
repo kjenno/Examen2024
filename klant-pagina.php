@@ -37,7 +37,7 @@
                             $Date = $Row['BillDate'];
                             echo '<div class="pdf-item">';
                             echo '<a href="Uploads/' . htmlspecialchars($NewName) . '" target="_blank">' . htmlspecialchars($OldName) . '</a>';
-                            echo '<hr>';
+                            echo '<hr>';    
                             echo '<div class="pdf-date">' . htmlspecialchars($Date) . '</div>';
                             echo '</div>';
                         }

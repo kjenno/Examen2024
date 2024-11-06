@@ -1,6 +1,6 @@
 <?php
     $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
-
+    include("admincheck.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
