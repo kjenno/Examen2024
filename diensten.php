@@ -98,7 +98,8 @@ $Producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
                     class="placeholder-image-icon"
                     loading="lazy"
                     alt="<?php echo htmlspecialchars($Product['naam']); ?>"
-                    src="<?php echo htmlspecialchars($Product['foto']); ?>"
+                    src="uploads/<?php echo htmlspecialchars($Product['foto']); ?>"
+                    
                   />
                   <div class="content4">
                     <div class="header">

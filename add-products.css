@@ -697,20 +697,15 @@ input[type="number"] {
   background-color: #c62828; /* Donkerder rood bij hover */
 }
 
-
-
-
-
-
 /* Stijl voor productkaarten */
 .product-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: #383838;
   margin-bottom: 20px;
   max-width: 250px;
   text-align: center;
@@ -743,7 +738,7 @@ input[type="number"] {
 
 .product-stock {
   font-size: 14px;
-  color: #777;
+  color: #ffffff;
 }
 
 .delete-form {
