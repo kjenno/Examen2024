@@ -22,7 +22,6 @@
             </a>
 
             <nav class="column20">
-              <a href="over-ons.php" class="link-text36">Over Ons</a>
               <a href="diensten.php" class="link-text37">Diensten</a>
               <a href="projecten.php" class="link-text38">Projecten</a>
               <a href="planning.php" class="link-text38">Planning</a>

@@ -2,6 +2,7 @@
 <?php
 include("DatabaseConnection.php");
 include("Logincheck.php");
+include("admincheck.php");
 
 // Toevoegen van evenement
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
