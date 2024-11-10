@@ -1,3 +1,12 @@
+a {
+  text-decoration: none; /* Removes underlines */
+  color: inherit; /* Inherits color from the parent, neutralizing specific link color styling */
+  font-style: normal; /* Ensures no italics or oblique styles */
+  font-weight: normal; /* Resets any bold styling */
+  text-transform: none; /* Resets uppercase, lowercase, or capitalize styles */
+  background: none; /* Removes any background styling */
+  outline: none; /* Removes any outline for links */
+}
 .checkbox1,
 .label1 {
   position: relative;
@@ -424,13 +433,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.product9 {
-  height: 428.8px;
-  flex: 1;
-  flex-direction: column;
-  gap: var(--gap-base);
-  min-width: 289px;
-}
+
 .content58 {
   align-self: stretch;
   flex-direction: row;
@@ -439,6 +442,18 @@
   gap: 64px 28.7px;
   font-size: var(--text-medium-normal-size);
 }
+
+/* Ensure all .product9 cards have the same size */
+.product9 {
+  width: 300px; /* Set a fixed width */
+  height: 400px; /* Set a fixed height */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-base);
+}
+
 .color-dark16,
 .product-11 {
   align-self: stretch;
@@ -707,9 +722,11 @@ input[type="number"] {
   border-radius: 10px;
   background-color: #383838;
   margin-bottom: 20px;
-  max-width: 250px;
+  width: 250px; /* Fixed width for uniformity */
+  height: 400px; /* Increased height to accommodate image and content */
   text-align: center;
   transition: box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
 .product-card:hover {
@@ -718,16 +735,21 @@ input[type="number"] {
 
 .product-image {
   margin-bottom: 10px;
+  width: 100%;
+  height: 200px; /* Larger image container */
+  overflow: hidden;
 }
 
 .product-photo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain; /* Show the entire image without cropping */
   border-radius: 10px;
 }
 
 .product-info {
   margin-bottom: 10px;
+  flex: 1;
 }
 
 .product-name {
@@ -742,7 +764,7 @@ input[type="number"] {
 }
 
 .delete-form {
-  margin-top: 10px;
+  margin-top: auto;
 }
 
 .delete-button {

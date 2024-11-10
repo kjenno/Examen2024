@@ -1,3 +1,13 @@
+a {
+  text-decoration: none; /* Removes underlines */
+  color: inherit; /* Inherits color from the parent, neutralizing specific link color styling */
+  font-style: normal; /* Ensures no italics or oblique styles */
+  font-weight: normal; /* Resets any bold styling */
+  text-transform: none; /* Resets uppercase, lowercase, or capitalize styles */
+  background: none; /* Removes any background styling */
+  outline: none; /* Removes any outline for links */
+}
+
 .giphy-1-icon {
   width: 2163px;
   height: 1569.8px;
@@ -7,6 +17,24 @@
   left: -451px;
   object-fit: contain;
 }
+.image {
+  width: 100%;
+  max-width: 500px; /* Increase maximum width for a larger display */
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.vid {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Keeps aspect ratio while covering container */
+  border-radius: 10px;
+}
+
 .color-dark19 {
   height: 27px;
   width: 63px;
@@ -120,11 +148,12 @@
   background: conic-gradient(
     from 100.25deg at 50% 50%,
     rgba(164, 108, 179, 0.8) -66.91deg,
-    rgba(0, 0, 0, 0.8) 8.54deg,
-    rgba(155, 142, 157, 0.8) 159.75deg,
-    rgba(164, 108, 179, 0.8) 293.09deg,
-    rgba(0, 0, 0, 0.8) 368.54deg
+    rgba(100, 100, 100, 0.7) 8.54deg, /* Adjusted this for a bit more brightness */
+    rgba(180, 160, 180, 0.8) 159.75deg, /* Brighter shade */
+    rgba(164, 108, 179, 0.9) 293.09deg, /* Increased opacity to brighten */
+    rgba(80, 80, 80, 0.6) 368.54deg /* Slightly lighter shade */
   );
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -183,16 +212,7 @@
   gap: var(--gap-13xl);
   max-width: 100%;
 }
-.image {
-  height: 378px;
-  width: 619px;
-  position: absolute;
-  margin: 0 !important;
-  top: 102px;
-  right: 88px;
-  border-radius: 17px;
-  z-index: 1;
-}
+
 .header-1,
 .image-icon5 {
   position: relative;
@@ -225,12 +245,13 @@
   line-height: 120%;
   font-weight: 700;
   font-family: inherit;
-  background: conic-gradient(
-    from 264.66deg at 50% 50%,
-    #000 0deg,
-    #9b8e9d 48.08deg,
-    #4f4e4f 182.59deg
+  background: linear-gradient(
+    to right,
+    rgba(240, 230, 250, 0.9), /* Bright light color on the left */
+    rgba(220, 210, 240, 0.8), /* Slightly softer light tone */
+    rgba(240, 230, 250, 0.9)  /* Bright light color on the right */
   );
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -298,13 +319,13 @@
   line-height: 120%;
   font-weight: 700;
   font-family: inherit;
-  background: conic-gradient(
-    from 90.56deg at 50% 50%,
-    #000 0deg,
-    #9b8e9d 142.13deg,
-    #212021 162.75deg,
-    #5d565e 307.57deg
+  background: linear-gradient(
+    to right,
+    rgba(240, 240, 250, 0.9), /* Bright light grey on the left */
+    rgba(200, 190, 210, 0.8), /* Soft grey in the middle */
+    rgba(240, 240, 250, 0.9)  /* Bright light grey on the right */
   );
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -446,12 +467,12 @@
   font-weight: 700;
   font-family: inherit;
   background: linear-gradient(
-    89.5deg,
-    #000,
-    #525152 13.25%,
-    #9b8e9d 50%,
-    #212021
+    to right,
+    rgba(240, 230, 250, 0.9), /* Bright light color on the left */
+    rgba(220, 210, 240, 0.8), /* Slightly softer light tone */
+    rgba(240, 230, 250, 0.9)  /* Bright light color on the right */
   );
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

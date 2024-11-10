@@ -41,24 +41,25 @@
               Ontdek de magie van licht en geluid
             </h1>
             <div class="content-description">
-              Bij Hyper Light and Sound brengen we licht en geluid tot leven. Ontdek onze professionele techniek en laat je betoveren.
-            </div>
+            "Hyper Light and Sound, Onze Passie. Van Muziek tot Magie in Licht en Geluid!"</div>
           </div>
         </div>
-        <div class="image"></div>
+        <div class="image">  <video class="vid" autoplay loop muted>
+  <source src="public/20240316_202441.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
       </section>
 
       <section class="image-parent" id="frameSection">
-        <img class="image-icon5" loading="lazy" alt="Afbeelding" src="./public/image1@2x.png" />
+        <img class="image-icon5" loading="lazy" alt="Afbeelding" src="./public/20240830_182722.jpg" />
 
         <div class="frame-wrapper">
           <div class="heading-parent">
             <h1 class="heading53">
-              Breng licht en geluid tot leven met onze specialistische techniek
-            </h1>
+            Hyper Light and Sound – De Kracht Achter Jouw Perfecte Event</h1>
             <div class="content-description">
-              Bij Hyper Light and Sound zijn we al twee jaar dé specialist in licht- en geluidstechniek in de regio. Met onze expertise zorgen we voor een gestroomlijnd en efficiënt proces, van eerste aanvraag tot aan de oplevering.
-            </div>
+Bij Hyper Light and Sound draait alles om beleving. Wij verzorgen complete licht- en geluidstechniek, DJ-services en professionele bediening voor elk soort evenement. Van intieme feestjes tot grootschalige bedrijfsfeesten en bruiloften, wij leveren maatwerk dat past bij jouw wensen. Met passie en precisie zorgen wij ervoor dat jouw event niet alleen goed klinkt en eruitziet, maar ook een onvergetelijke ervaring wordt!            </div>
           </div>
         </div>
       </section>
@@ -83,15 +84,15 @@
               <div class="column22">
                 <img class="icon-relume6" loading="lazy" alt="Icon" src="./public/icon--relume1.svg" />
                 <div class="content79">
-                  <h1 class="heading55">Video's van onze succesvolle evenementen</h1>
-                  <div class="content-descriptions">Bekijk de hoogtepunten van onze evenementen in actie.</div>
+                  <h1 class="heading55">Bekijk onze projecten in actie en laat je inspireren door de sfeer en energie die we creëren.</h1>
+                  <div class="content-descriptions">Van bruiloften tot bedrijfsfeesten – beleef de hoogtepunten van onze evenementen en zie hoe wij jouw visie tot leven brengen</div>
                 </div>
               </div>
 
               <div class="column22">
                 <img class="icon-relume6" loading="lazy" alt="Icon" src="./public/icon--relume1.svg" />
                 <div class="content79">
-                  <h1 class="heading55">Klantbeoordelingen van onze projecten</h1>
+                  <h1 class="heading55">Ontdek wat onze klanten zeggen over hun ervaring met Hyper Light and Sound</h1>
                   <div class="content-descriptions">Lees wat onze klanten zeggen over onze diensten.</div>
                 </div>
               </div>
@@ -100,7 +101,7 @@
                 <img class="icon-relume6" loading="lazy" alt="Icon" src="./public/icon--relume1.svg" />
                 <div class="content79">
                   <h1 class="heading55">Waarom kiezen voor Hyper Light and Sound?</h1>
-                  <div class="content-descriptions">Wij combineren expertise met passie voor licht en geluid.</div>
+                  <div class="content-descriptions">Bij Hyper Light and Sound combineren we expertise met passie. Wij begrijpen dat elk evenement uniek is en bieden daarom maatwerkoplossingen in licht en geluid. Vertrouw op onze ervaring en toewijding om jouw evenement onvergetelijk te maken.”</div>
                 </div>
               </div>
             </div>
@@ -121,11 +122,11 @@
               </h1>
               <div class="nested-description">
                 <p class="hyper-light-and">
-                  Hyper Light and Sound: Het bedrijf voor DJ, bediening en verhuur van licht en geluid.
+                Bij Hyper Light and Sound draait alles om het creëren van onvergetelijke ervaringen met een perfecte balans tussen licht, geluid en muziek. 
                 </p>
                 <p class="hyper-light-and">&nbsp;</p>
                 <p class="hyper-light-and">
-                  In november 2022 heb ik mijn bedrijf gestart voor DJ, bediening en verhuur van licht en geluid. Van je hobby je werk maken – dat is de droom van iedereen.
+                Sinds november 2022 zetten we onze passie in voor professionele DJ-services, bediening en verhuur van licht- en geluidstechniek. Wat begon als een hobby, groeide uit tot een allround service voor evenementen van elke omvang.
                 </p>
               </div>
             </div>
@@ -135,14 +136,14 @@
                 <div class="list-item6">
                   <b class="subheading-one">Betrouwbaarheid</b>
                   <div class="content-description">
-                    Hyper Light and Sound is een allround DJ en licht- en geluidbedrijf dat alle soorten evenementen en feesten bedient.
+                  Bij ons kun je rekenen op hoogwaardige kwaliteit en professionele uitvoering. Van kleine feestjes tot grootschalige evenementen – wij maken alles tot in detail perfect.
                   </div>
                 </div>
 
                 <div class="list-item6">
                   <b class="subheading-one">Klantgericht</b>
                   <div class="content-description">
-                    Bij Hyper Light and Sound staat de klant centraal. Ik streef ernaar om een onvergetelijke ervaring te bieden.
+                  Jouw wensen staan centraal. Wij luisteren aandachtig en zorgen ervoor dat ieder detail aansluit op jouw visie, zodat jij zorgeloos kunt genieten van een fantastisch evenement.
                   </div>
                 </div>
               </div>

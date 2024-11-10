@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
 
     // Controleer of het product al bestaat in de database
     $CheckQuery = "SELECT naam FROM products WHERE naam = ?";
-    $StmtCheck = $conn->prepare($CheckQuery);
+    $StmtCheck = $Conn->prepare($CheckQuery);
     if ($StmtCheck) {
         $StmtCheck->bind_param("s", $ProductNaam);
         $StmtCheck->execute();
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
             // Voeg het product toe aan de database
             if ($ProductAfbeelding) {
                 $Query = "INSERT INTO products (naam, categorie, aantal, foto) VALUES (?, ?, ?, ?)";
-                $Stmt = $Conn->prepare($query);
+                $Stmt = $Conn->prepare($Query);
                 if ($Stmt) {
                     $Stmt->bind_param("ssis", $ProductNaam, $ProductCategorie, $ProductAantal, $ProductAfbeelding);
                     $Stmt->execute();

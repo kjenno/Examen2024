@@ -43,7 +43,7 @@
         </div>
       </header>
       <section class="header-543" data-scroll-to="header54">
-        <h1 class="short-heading-here6">Onze Projecten</h1>
+        <h1 class="short-heading-here6">Aantal Projecten</h1>
         <div class="lorem-ipsum-dolor13">
           Bekijk hoe wij met passie licht en geluid tot leven brengen in onze
           unieke projecten.
@@ -68,15 +68,14 @@
                 class="image-icon7"
                 loading="lazy"
                 alt=""
-                src="./public/image2@2x.png"
+                src="public/20240704_181828.jpg"
               />
 
               <div class="content93">
                 <div class="text93">
-                  <h3 class="heading61">Lichtshow in Amsterdam</h3>
+                  <h3 class="heading61">Wereldfestival brunssum</h3>
                   <div class="card-description">
-                    Een adembenemende lichtshow voor een groot evenement in het
-                    hart van Amsterdam.
+                   ................................................................................
                   </div>
                 </div>
                 <a href="lichtshow-amsterdam.html" class="stylelink-smallfalse-alter3">
@@ -95,7 +94,7 @@
                 class="image-icon7"
                 loading="lazy"
                 alt=""
-                src="./public/image-12@2x.png"
+                src="public/20240705_010348.jpg"
               />
 
               <div class="content93">
@@ -119,9 +118,6 @@
             </div>
           </div>
           <div class="actions6" id="actionsContainer">
-            <a href="alle-projecten.php" class="stylesecondary-smallfalse4">
-              <div class="paragraph">Bekijk alles</div>
-            </a>
           </div>
         </div>
       </section>
@@ -130,7 +126,7 @@
           class="image-icon7"
           loading="lazy"
           alt=""
-          src="./public/image-21@2x.png"
+          src="public/20240718_052635.jpg"
         />
 
         <div class="content95">

@@ -23,7 +23,7 @@ $Result = $Conn->query($Sql);
             <div class="navbar-63">
                 <div class="content40">
                     <div class="content41">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img class="color-dark9" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
                         </a>
 
@@ -109,7 +109,7 @@ $Result = $Conn->query($Sql);
                 </div>
             </div>
         </footer>
-    </div>jrfn
+    </div>
     
 </body>
 </html>

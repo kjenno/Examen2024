@@ -194,7 +194,7 @@ $Producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
 
       <section class="footer-7">
         <div class="content15">
-          <a href="./index.php">
+          <a href=".index.php">
             <div class="logo">
               <img class="color-dark1" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
             </div>
