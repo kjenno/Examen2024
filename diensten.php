@@ -65,9 +65,7 @@ $Stmt->close();
 
         <div class="header-54" id="header54">
           <h1 class="short-heading-here">Diensten</h1>
-          <div class="lorem-ipsum-dolor">
-            Vraag uw offerte eenvoudig aan en bekijk onze producten
-          </div>
+          
         </div>
 
         <!-- Categorie Selectie -->
