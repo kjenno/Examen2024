@@ -29,15 +29,9 @@
             <button type="submit" name="submit">Verzenden</button>
         </form>
         <?php
-          session_start(); // Start session to retrieve error
-          
-          // Check if there is an error message
-          if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-              // Display the error message
-              echo "<p style='color: red; text-align: center;'>" . $_SESSION['error'] . "</p>";
-              
-              // Clear the error message after displaying it
-              unset($_SESSION['error']);
+          $Message = $_GET['message'] ?? null;
+          if (!empty($Message)) {
+              echo "<p style='color: red; text-align: center;'>$Message</p>";
           }
         ?>
         </div>

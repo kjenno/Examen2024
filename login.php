@@ -1,50 +1,3 @@
-<?php
-
-include("DatabaseConnection.php");
-
-// Verwerk het formulier als het is verzonden via GET
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'], $_GET['password'])) {
-    $Email = trim($_GET['email']);
-    $Password = trim($_GET['password']);
-
-    // Controleer of het e-mailadres in de database staat
-    $Stmt = $Conn->prepare("SELECT Uuid, Admin, Password FROM user WHERE Email = ?");
-    $Stmt->bind_param("s", $Email);
-    $Stmt->execute();
-    $Stmt->store_result();
-
-    // Controleer of de gebruiker bestaat
-    if ($Stmt->num_rows > 0) {
-        $Stmt->bind_result($Id, $Admin, $HashedPassword);
-        $Stmt->fetch();
-
-        // Controleer of het ingevoerde wachtwoord overeenkomt
-        if (password_verify($Password, $HashedPassword)) {
-            session_start();
-            $_SESSION['id'] = $Id;
-            $_SESSION['loggedin'] = true;
-            if ($Admin == 2) {
-                header("Location: klant-pagina.php?id=$Id");
-            } 
-            elseif ($Admin == 1) {
-                header("Location: admin-right-pagina.php?id=$Id");
-            }
-            
-            exit();
-        } else {
-            $ErrorMessage = "Onjuist wachtwoord.";
-        }
-    } else {
-        $ErrorMessage = "Geen account gevonden met dit e-mailadres.";
-    }
-
-    $Stmt->close();
-}
-
-// Sluit de databaseconnectie
-$Conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -76,11 +29,11 @@ $Conn->close();
                 <div class="section-title7">
                     <h1 class="log-in1">Inloggen</h1>
                     <div class="login-description">
-                        Voer je gegevens hieronder in om in te loggen.
+                        Voer je gegevens hieronder in om in te loggen.    
                     </div>
                 </div>
-                <!-- Het formulier stuurt gegevens naar deze zelfde pagina (login.php) via GET -->
-                <form class="form2" action="login.php" method="get">
+                <!-- Het formulier stuurt gegevens naar B_login.php via POST -->
+                <form class="form2" action="B_login.php" method="post">
                     <div class="input8">
                         <label for="email" class="email2">Email*</label>
                         <input id="email" class="typedefault-alternatefalse7" type="email" name="email" required>
@@ -101,8 +54,9 @@ $Conn->close();
                 </form>
                 <!-- Toon eventuele foutmeldingen -->
                 <?php
-                if (!empty($ErrorMessage)) {
-                    echo "<p style='color: red; text-align: center;'>$ErrorMessage</p>";
+                $Message = $_GET['message'] ?? null;
+                if (!empty($Message)) {
+                    echo "<p style='color: red; text-align: center;'>$Message</p>";
                 }
                 ?>
             </div>

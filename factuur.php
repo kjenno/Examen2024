@@ -1,6 +1,8 @@
 <?php
     $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
     include("admincheck.php");
+    include("Logincheck.php");
+    include("DatabaseConnection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +28,6 @@
                 <label for="user">Kies een gebruiker:</label>
                 <select name="user" id="user" required>
                     <?php
-                        include("Logincheck.php");
-                        include("DatabaseConnection.php");
 
                         // Fetch users from the database
                         $Sql = "SELECT uuid, name FROM user";
@@ -40,8 +40,6 @@
                         } else {
                             echo '<option value="">Geen gebruikers beschikbaar</option>';
                         }
-
-                        $Conn->close();
                     ?>
                 </select><br>
                 
@@ -52,7 +50,6 @@
         <section class="scrollable-container">
             <div class="pdf-container">
                 <?php
-                    include("DatabaseConnection.php");
                     $Sql = "SELECT PDFName, PDFId, BillDate FROM bills";
                     $Result = $Conn->query($Sql);
 

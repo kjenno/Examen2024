@@ -14,7 +14,9 @@ if ($Stmt->num_rows > 0)
     $Stmt->fetch();
     if($Admin != 1)
     {
+        
         header("location: geentoegang.php");
+
     }
 }
 else

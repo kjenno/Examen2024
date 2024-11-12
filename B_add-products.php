@@ -1,22 +1,9 @@
 <?php
 include("DatabaseConnection.php");
-
-$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
-
-$Producten = [];
-
-$CategorieQuery = "SELECT DISTINCT categorie FROM products";
-$CategorieResult = $Conn->query($CategorieQuery);
-$Categorieen = [];
-
-if ($CategorieResult) {
-    while ($Row = $CategorieResult->fetch_assoc()) {
-        $Categorieen[] = $Row; 
-    }
-}
-
+$UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (isset($_POST['verwijder_product'])) {
+    $UrlId = $_POST['urlid'];
     $ProductNaam = $_POST['product_naam']; 
     $DeleteQuery = "DELETE FROM products WHERE naam = ?";
     $StmtDelete = $Conn->prepare($DeleteQuery);
@@ -24,6 +11,7 @@ if (isset($_POST['verwijder_product'])) {
         $StmtDelete->bind_param("s", $ProductNaam);
         $StmtDelete->execute();
         $StmtDelete->close();
+        header("Location: add-products.php?id=$UrlId");
     } else {
         echo "Fout bij het voorbereiden van de verwijderquery: " . $Conn->error;
     }
@@ -35,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     $ProductNaam = $_POST['product_naam'];
     $ProductCategorie = $_POST['product_categorie'];
     $ProductAantal = $_POST['product_aantal']; 
+    $UrlId = $_POST['urlid'];
 
   
     if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) {
@@ -52,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
             if (move_uploaded_file($_FILES['product_afbeelding']['tmp_name'], $UploadFile)) {
                 echo "Bestand is succesvol geüpload.";
                 $ProductAfbeelding = basename($UploadFile);  // Alleen de bestandsnaam opslaan in de database
+                
             } else {
                 echo "Fout bij het uploaden van het bestand.";
                 $ProductAfbeelding = null;
@@ -86,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
                     echo "<p>Product succesvol toegevoegd!</p>";
 
                     // Redirect naar dezelfde pagina om dubbele indiening te voorkomen
-                    header("Location: " . $_SERVER['PHP_SELF']);
+                    header("Location: add-products.php?id=$UrlId");
                     exit(); // Stop verdere uitvoering om dubbele invoeging te voorkomen
                 } else {
                     echo "Fout bij het voorbereiden van de invoegquery: " . $Conn->error;
@@ -99,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
 
 // Als er een categorie is geselecteerd, haal de producten in die categorie op
 if ($GekozenCategorie) {
+    $UrlId = $_GET['urlid'];
     $Query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
     $Stmt = $Conn->prepare($Query);
     if ($Stmt) {
@@ -119,6 +110,10 @@ if ($GekozenCategorie) {
 if ($Result) {
     while ($Row = $Result->fetch_assoc()) {
         $Producten[] = $Row; // Voeg producten toe aan de array
+        session_start();
+        $_SESSION['producten'] = $Producten;
+        $_SESSION['p_check'] = true;
+        header("Location: add-products.php?id=$UrlId");
     }
 } else {
     echo "Fout bij het ophalen van de producten: " . $Conn->error;

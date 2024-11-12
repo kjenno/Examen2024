@@ -1,50 +1,3 @@
-<?php
-// Controleer of het formulier is ingediend en verwerk de gegevens
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database verbindingsgegevens
-    include("DatabaseConnection.php");
-
-    // Ontvang de gegevens van het formulier
-    $Name = trim($_POST['name']);
-    $Email = trim($_POST['email']);
-    $Password = trim($_POST['password']);
-    $Admin = '2'; // Standaardwaarde voor Admin
-
-    // Hash het wachtwoord voor veilige opslag
-    $HashedPassword = password_hash($Password, PASSWORD_DEFAULT);
-
-    // Genereer een unieke UUID voor de gebruiker
-    $Uuid = uniqid('', true);
-
-    // Controleer of het e-mailadres al bestaat
-    $stmt = $Conn->prepare("SELECT * FROM user WHERE Email = ?");
-    $stmt->bind_param("s", $Email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $Message = "Het e-mailadres is al geregistreerd.";
-    } else {
-        // Voeg de nieuwe gebruiker toe aan de database
-        $stmt = $Conn->prepare("INSERT INTO user (Uuid, Admin, Name, Email, Password) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $Uuid, $Admin, $Name, $Email, $HashedPassword);
-
-        if ($stmt->execute()) {
-            $Message = "Registratie succesvol! U kunt nu inloggen.";
-            // Direct doorverwijzen naar de inlogpagina na succesvolle registratie
-            header("Location: login.php");
-            exit();
-        } else {
-            $Message = "Fout bij het registreren: " . $stmt->error;
-        }
-    }
-
-    // Sluit de statements en de verbinding
-    $stmt->close();
-    $conn->close();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -97,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <!-- Registratieformulier -->
-                <form class="form1" action="registreren.php" method="post">
+                <form class="form1" action="B_registreren.php" method="post">
                     <div class="input5">
                         <label for="name" class="name">Naam*</label>
                         <input id="name" class="typedefault-alternatefalse4" type="text" name="name" required>
@@ -118,11 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </form>
 
                 <!-- Meldingen -->
-                <?php if (isset($Message)): ?>
-                    <div class="Message" style="text-align: center; color: red;">
-                        <?php echo htmlspecialchars($Message); ?>
-                    </div>
-                <?php endif; ?>
+                <?php
+                $Message = $_GET['message'] ?? null;
+                if (!empty($Message)) {
+                    echo "<p style='color: red; text-align: center;'>$Message</p>";
+                }
+                ?>
             </div>
         </section>
     </main>

@@ -23,9 +23,9 @@ if (isset($_POST['submit'])) {
         $PasswordConfirm = $_POST['password_confirm'];
 
         // Verify the code matches the one stored in session
-        if ($code == $_SESSION['code']) {
+        if ($Code == $_SESSION['code']) {
             if ($Password == $PasswordConfirm) {
-                $Password = password_hash($password, PASSWORD_DEFAULT);
+                $Password = password_hash($Password, PASSWORD_DEFAULT);
                 $Email = $_SESSION['email'];
                 $Stmt = $Conn->prepare("UPDATE user SET Password = ? WHERE email = ?");
                 $Stmt->bind_param("ss", $Password, $Email); // "ss" means both parameters are strings
@@ -33,14 +33,14 @@ if (isset($_POST['submit'])) {
                 $Stmt->close();
                 $Conn->close();
                 session_unset();
-                header("Login.php");
+                header("Location: login.php");
             } else {
-                $_SESSION['error'] = "Wachtwoorden komen niet overeen.";
-                header("wachtwoord-instellen.php");
+                $Message = "Wachtwoorden komen niet overeen.";
+                header("Location: wachtwoord-instellen.php?var1=" . urlencode($Message));
             }
         } else {
-            $_SESSION['error'] = "Code onjuist.";
-            header("wachtwoord-instellen.php");
+            $Message = "Code onjuist.";
+            header("Location: wachtwoord-instellen.php?var1=" . urlencode($Message));
         }
     }
 }

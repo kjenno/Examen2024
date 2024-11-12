@@ -33,7 +33,7 @@ if (isset($_POST['submit']))
                 $Stmt->execute();
 
                 $Stmt = $Conn->prepare("SELECT Email FROM User WHERE Uuid = ?");
-                $Stmt->bind_param("s", $Uuid); // Assuming $uuid is a string
+                $Stmt->bind_param("s", $Uuid);
                 $Stmt->execute();
                 $Result = $Stmt->get_result();
                 $row = $Result->fetch_assoc();

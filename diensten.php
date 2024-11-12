@@ -2,20 +2,24 @@
 include("DatabaseConnection.php");
 include("offerte.php");
 
-// Haal categorieën op uit de database
+// Assuming $Conn is the MySQLi connection object
 $CategorieQuery = "SELECT DISTINCT categorie FROM products";
-$CategorieStmt = $pdo->prepare($CategorieQuery);
-$CategorieStmt->execute();
-$Categorieen = $CategorieStmt->fetchAll(PDO::FETCH_ASSOC);
+$CategorieResult = $Conn->query($CategorieQuery);
+$Categorieen = $CategorieResult->fetch_all(MYSQLI_ASSOC);
 
-// Haal producten op op basis van de gekozen categorie
-$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : 'Geluid'; // Standaard categorie is 'Geluid'
+// Get the selected category from the GET parameter, defaulting to 'Geluid' if not set
+$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : 'Geluid';
 
-$Sql = "SELECT naam, foto FROM products WHERE categorie = :categorie";
-$Stmt = $pdo->prepare($Sql);
-$Stmt->bindParam(':categorie', $GekozenCategorie, PDO::PARAM_STR);
+// Prepare and execute the SQL query for products with the chosen category
+$Sql = "SELECT naam, foto FROM products WHERE categorie = ?";
+$Stmt = $Conn->prepare($Sql);
+$Stmt->bind_param("s", $GekozenCategorie);
 $Stmt->execute();
-$Producten = $Stmt->fetchAll(PDO::FETCH_ASSOC);
+$Producten = $Stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+// Optionally, close the prepared statement
+$Stmt->close();
+
 ?>
 
 <!DOCTYPE html>

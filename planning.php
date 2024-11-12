@@ -1,12 +1,3 @@
-
-<?php
-include("DatabaseConnection.php");
-
-
-$Sql = "SELECT * FROM events ORDER BY event_date, event_time";
-$Result = $Conn->query($Sql);
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -60,6 +51,12 @@ $Result = $Conn->query($Sql);
                 </div>
                 <div class="content43">
                     <?php
+                    include("DatabaseConnection.php");
+
+
+                    $Sql = "SELECT * FROM events ORDER BY event_date, event_time";
+                    $Result = $Conn->query($Sql);
+
                     if ($Result->num_rows > 0) {
                         $CurrentDate = null;
 
