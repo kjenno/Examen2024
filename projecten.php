@@ -20,7 +20,7 @@
               class="color-dark21"
               loading="lazy"
               alt=""
-              src="./public/color--dark.svg"
+              src="./public/logo.png"
               id="colorDark"
             />
 
@@ -246,7 +246,7 @@
               class="color-dark22"
               loading="lazy"
               alt=""
-              src="./public/color--dark.svg"
+              src="./public/logo.png"
             />
 
             <div class="footer-links">

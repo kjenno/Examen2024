@@ -18,7 +18,7 @@
         <header class="content74">
           <div class="content75">
             <a href="./index.php">
-              <img class="color-dark19" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+              <img class="color-dark19" loading="lazy" alt="Logo" src="./public/logo.png" />
             </a>
 
             <nav class="column20">
@@ -193,7 +193,7 @@ Bij Hyper Light and Sound draait alles om beleving. Wij verzorgen complete licht
         <div class="content88">
           <a href="./index.html">
             <div class="logo9">
-              <img class="color-dark20" loading="lazy" alt="Footer Logo" src="./public/color--dark.svg" />
+              <img class="color-dark20" loading="lazy" alt="Footer Logo" src="./public/logo.png" />
             </div>
           </a>
 

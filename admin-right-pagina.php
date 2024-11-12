@@ -19,7 +19,7 @@ $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
         <div class="content16">
           <div class="content17">
             <a href="index.php">
-              <img class="color-dark2" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+              <img class="color-dark2" loading="lazy" alt="Logo" src="./public/logo.png" />
             </a>
             <nav class="column1">
               <div class="link-text4"><a href="over-ons.php">Over Ons</a></div>

@@ -12,7 +12,7 @@
     <div class="login">
         <header class="content49">
             <div class="content50">
-                <img class="color-dark13" loading="lazy" alt="Logo" src="./public/color--dark.svg" id="colorDark">
+                <img class="color-dark13" loading="lazy" alt="Logo" src="./public/logo.png" id="colorDark">
                 <nav class="column10">
                     <a href="./over-ons.php" class="link-text25" id="linkText1">Over Ons</a>
                     <a href="./diensten.php" class="link-text26" id="linkText2">Diensten</a>

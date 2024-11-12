@@ -46,7 +46,7 @@ $Stmt->close();
                     class="color-dark"
                     loading="lazy"
                     alt="Logo"
-                    src="./public/color--dark.svg"
+                    src="./public/logo.png"
                   />
                 </a>
 
@@ -200,7 +200,7 @@ $Stmt->close();
         <div class="content15">
           <a href=".index.php">
             <div class="logo">
-              <img class="color-dark1" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+              <img class="color-dark1" loading="lazy" alt="Logo" src="./public/logo.png" />
             </div>
           </a>
         </div>
