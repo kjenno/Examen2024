@@ -699,22 +699,18 @@ a {
 .projecten {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch; /* Ensure all child elements stretch to full width */
   justify-content: flex-start;
 }
+
 .footer-bottom {
-  align-self: stretch;
   gap: var(--gap-13xl);
   max-width: 100%;
   font-size: var(--text-small-normal-size);
+  margin-top: auto; /* Pushes the footer to the bottom */
 }
-.footer-710,
-.projecten {
-  overflow: hidden;
-  box-sizing: border-box;
-}
+
 .footer-710 {
-  align-self: stretch;
   background-color: #203471;
   padding: var(--padding-61xl) var(--padding-45xl);
   gap: var(--gap-61xl);
@@ -724,14 +720,19 @@ a {
   color: var(--background-color-primary);
   font-family: var(--text-regular-semi-bold);
 }
+
 .projecten {
   width: 100%;
-  position: relative;
+  min-height: 100vh; /* Ensure the page takes up the full viewport height */
+  display: flex;
+  flex-direction: column; /* Arrange content vertically */
   background-color: var(--link-primary);
-  padding: 0 0 264px;
+  padding: 0; /* Remove bottom padding that adds unnecessary space */
+  box-sizing: border-box; /* Include padding and borders in width and height */
   line-height: normal;
   letter-spacing: normal;
 }
+
 @media screen and (max-width: 1200px) {
   .portfolio-1 {
     padding-top: var(--padding-28xl);
