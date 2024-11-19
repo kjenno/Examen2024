@@ -16,13 +16,9 @@
       <header class="navbar-68">
         <div class="content89">
           <div class="content90">
-            <img
-              class="color-dark21"
-              loading="lazy"
-              alt=""
-              src="./public/logo.png"
-              id="colorDark"
-            />
+          <a href="./index.php">
+              <img class="color-dark19" loading="lazy" alt="Logo" src="./public/logo.png" />
+            </a>
 
             <nav class="column25">
               <a href="diensten.php" class="link-text41" id="linkText1">Diensten</a>
