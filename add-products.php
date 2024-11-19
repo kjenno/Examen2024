@@ -1,7 +1,8 @@
 <?php
 include("DatabaseConnection.php");
-include("admincheck.php");
+//include("admincheck.php");
 session_start();
+$UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 $GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
 $PCheck = $_SESSION['p_check'];
 if($PCheck != true){
@@ -102,14 +103,19 @@ if($PCheck != true){
                     <form method="GET" class="category-selector" action="B_add-products.php">
                         <input type="hidden" name="urlid" value="<?php echo htmlspecialchars($UrlId); ?>">
                         <label for="categorie">Kies een categorie:</label>
-                        <select name="categorie" id="categorie" onchange="this.form.submit()">
-                            <option value="">Alle categorieën</option> <!-- Default optie -->
+                        <select name="categorie" id="categorie">
+                            <!-- Default option for all categories -->
+                            <option value="all" <?php echo ($GekozenCategorie == 'all' || $GekozenCategorie == '') ? 'selected' : ''; ?>>
+                                Alle categorieën
+                            </option>
+                            <!-- Dynamically populated options from $Categorieen -->
                             <?php foreach ($Categorieen as $Categorie): ?>
                                 <option value="<?php echo htmlspecialchars($Categorie['categorie']); ?>" <?php echo ($Categorie['categorie'] == $GekozenCategorie) ? 'selected' : ''; ?>>
                                     <?php echo htmlspecialchars($Categorie['categorie']); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <button type="submit">Filter</button>
                     </form>
                 </div>
             </div>
