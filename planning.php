@@ -15,7 +15,7 @@
                 <div class="content40">
                     <div class="content41">
                         <a href="index.php">
-                            <img class="color-dark9" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+                            <img class="color-dark9" loading="lazy" alt="Logo" src="./public/logo.png" />
                         </a>
 
                         <nav class="column8">
@@ -102,7 +102,7 @@
         <footer class="footer-74">
             <div class="content44">
                 <div class="logo4">
-                    <img class="color-dark10" loading="lazy" alt="Logo" src="./public/color--dark.svg" />
+                    <img class="color-dark10" loading="lazy" alt="Logo" src="./public/logo.png" />
                 </div>
             </div>
         </footer>

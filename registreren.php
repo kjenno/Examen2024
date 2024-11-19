@@ -14,7 +14,7 @@
         <header class="content35">
             <div class="content36">
                 <a href="./index.php">
-                    <img class="color-dark6" loading="lazy" alt="Logo" src="./public/color--dark.svg">
+                    <img class="color-dark6" loading="lazy" alt="Logo" src="./public/logo.png">
                 </a>
                 <nav class="column6">
                     <a href="./over-ons.php" class="link-text12">Over Ons</a>
@@ -85,7 +85,7 @@
         <div class="content39">
             <div class="logo3">
                 <a href="./index.php">
-                    <img class="color-dark8" loading="lazy" alt="Logo" src="./public/color--dark.svg">
+                    <img class="color-dark8" loading="lazy" alt="Logo" src="./public/logo.png">
                 </a>
             </div>
             <div class="links3">

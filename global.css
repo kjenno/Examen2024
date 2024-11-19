@@ -1,6 +1,7 @@
 body {
   margin: 0;
   line-height: normal;
+  background-color: #22365d; /* You can use color names, hex, rgb, or rgba values */
 }
 a {
   text-decoration: none; /* Removes underlines */

@@ -25,7 +25,7 @@ if($PCheck != true){
         <header class="navbar-65">
         <div class="content54">
             <div class="content55">
-             <img class="color-dark15" loading="lazy" alt="" src="./public/color--dark.svg" id="colorDark" />
+             <img class="color-dark15" loading="lazy" alt="" src="./public/logo.png" id="colorDark" />
                <nav class="column14">
                 <a href="diensten.php" class="link-text29">Diensten</a>
                 <a href="projecten.php" class="link-text30" id="linkText2">Projecten</a>
@@ -152,7 +152,7 @@ if($PCheck != true){
         <section class="footer-77">
             <div class="content67">
                 <div class="logo7">
-                    <img class="color-dark16" loading="lazy" alt="" src="./public/color--dark.svg" />
+                    <img class="color-dark16" loading="lazy" alt="" src="./public/logo.png" />
                 </div>
                 <div class="links7">
                     <div class="link-one7">Over ons</div>

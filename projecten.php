@@ -20,7 +20,7 @@
               class="color-dark21"
               loading="lazy"
               alt=""
-              src="./public/color--dark.svg"
+              src="./public/logo.png"
               id="colorDark"
             />
 
@@ -44,10 +44,6 @@
       </header>
       <section class="header-543" data-scroll-to="header54">
         <h1 class="short-heading-here6">Aantal Projecten</h1>
-        <div class="lorem-ipsum-dolor13">
-          Bekijk hoe wij met passie licht en geluid tot leven brengen in onze
-          unieke projecten.
-        </div>
       </section>
       <section class="portfolio-1">
         <div class="section-title13">
@@ -78,14 +74,6 @@
                    ................................................................................
                   </div>
                 </div>
-                <a href="lichtshow-amsterdam.html" class="stylelink-smallfalse-alter3">
-                  <div class="button35">Bekijk Project</div>
-                  <img
-                    class="icon-chevron-right5"
-                    loading="lazy"
-                    alt=""
-                    src="./public/icon--chevronright1.svg"
-                  />
                 </a>
               </div>
             </div>
@@ -105,15 +93,6 @@
                     festivalervaring.
                   </div>
                 </div>
-                <a href="geluidstechniek-festival.html" class="stylelink-smallfalse-alter3">
-                  <div class="button36">Bekijk project</div>
-                  <img
-                    class="icon-chevron-right5"
-                    loading="lazy"
-                    alt=""
-                    src="./public/icon--chevronright.svg"
-                  />
-                </a>
               </div>
             </div>
           </div>
@@ -246,7 +225,7 @@
               class="color-dark22"
               loading="lazy"
               alt=""
-              src="./public/color--dark.svg"
+              src="./public/logo.png"
             />
 
             <div class="footer-links">

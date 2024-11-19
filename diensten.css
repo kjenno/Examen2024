@@ -1,3 +1,6 @@
+body {
+  background-color: #22365d; /* You can use color names, hex, rgb, or rgba values */
+}
 .color-dark {
   height: 27px;
   width: 63px;
