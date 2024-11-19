@@ -41,27 +41,27 @@ if (isset($_POST['submit']))
                 $MSubject = "Factuur";
                 $MText = ".";
                 MailSender($ReceiverMail,$MSubject,$MText,$FileDestination);
-
-                header("Location: factuur.php?id=$UrlId");
                 exit();
             }   
             else 
             {
-                echo "The File size was too big.";
+                $Message = "The File size was too big.";
             }
         } 
         else 
         {
-            echo "There was an error when uploading the File.";
+            $Message = "There was an error when uploading the File.";
         }
     } 
     else 
     {
-        echo "You cannot upload Files of this type.";
+        $Message =  "You cannot upload Files of this type.";
     }
 } 
 else 
 {
-    echo "Form not submitted.";
+    $Message =  "Form not submitted.";
 }
+
+header("Location: factuur.php?message=" . urlencode($Message));
 ?>

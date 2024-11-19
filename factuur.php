@@ -22,7 +22,7 @@
 
         <section class="form-container">
             <h2>Upload een Factuur</h2>
-            <form action="upload.php<?php echo $UrlId ? '?id=' . $UrlId : ''; ?>" method="POST" enctype="multipart/form-data">
+            <form action="B_factuur.php<?php echo $UrlId ? '?id=' . $UrlId : ''; ?>" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" required><br>
 
                 <label for="user">Kies een gebruiker:</label>

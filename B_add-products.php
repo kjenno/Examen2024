@@ -1,6 +1,8 @@
 <?php
 include("DatabaseConnection.php");
 $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
+$GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : null;
+
 
 if (isset($_POST['verwijder_product'])) {
     $UrlId = $_POST['urlid'];
@@ -88,38 +90,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
 }
 
 // Als er een categorie is geselecteerd, haal de producten in die categorie op
-if ($GekozenCategorie) {
-    $UrlId = $_GET['urlid'];
-    $Query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
-    $Stmt = $Conn->prepare($Query);
-    if ($Stmt) {
-        $Stmt->bind_param("s", $GekozenCategorie);
-        $Stmt->execute();
-        $Result = $Stmt->get_result();
+    if ($GekozenCategorie && $GekozenCategorie !== 'all') {
+        // Query for specific categories
+        $Query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
+        $Stmt = $Conn->prepare($Query);
+        if ($Stmt) {
+            $Stmt->bind_param("s", $GekozenCategorie);
+            $Stmt->execute();
+            $Result = $Stmt->get_result();
+        } else {
+            echo "Fout bij het voorbereiden van de query: " . $Conn->error;
+            exit;
+        }
+    } elseif ($GekozenCategorie == 'all' || $GekozenCategorie == '') {
+        // Query for all categories
+        $Query = "SELECT naam, aantal, foto FROM products";
+        $Result = $Conn->query($Query);
     } else {
-        echo "Fout bij het voorbereiden van de query: " . $Conn->error;
-        exit;
+        // Query for all products as a fallback
+        $Query = "SELECT naam, aantal, foto FROM products";
+        $Result = $Conn->query($Query);
     }
-} else {
-    // Als er geen categorie is geselecteerd, haal alle producten op
-    $Query = "SELECT naam, aantal, foto FROM products";
-    $Result = $Conn->query($Query);
-}
 
-// Controleer of de query succesvol is uitgevoerd
-if ($Result) {
-    while ($Row = $Result->fetch_assoc()) {
-        $Producten[] = $Row; // Voeg producten toe aan de array
+    // Process the query result
+    if ($Result) {
+        $Producten = []; // Initialize the array
+        while ($Row = $Result->fetch_assoc()) {
+            $Producten[] = $Row;
+        }
         session_start();
         $_SESSION['producten'] = $Producten;
         $_SESSION['p_check'] = true;
-        header("Location: add-products.php?id=$UrlId");
+        header("Location: add-products.php?id=$UrlId&category=" . urlencode($GekozenCategorie));
+        exit;
+    } else {
+        echo "Fout bij het ophalen van de producten: " . $Conn->error;
+        exit;
     }
-} else {
-    echo "Fout bij het ophalen van de producten: " . $Conn->error;
-    exit;
-}
 
-// Sluit de verbinding
+
+// Close the connection
 $Conn->close();
+
 ?>
