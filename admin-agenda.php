@@ -29,11 +29,24 @@ $Result = $Conn->query($Sql);
 <body>
     <div class="admin-agenda">
         <main class="afpraak">
-            <header class="navbar-66">
-                <div class="content68">
-                    <!-- Navbar content -->
+        <header class="navbar-65">
+        <div class="content54">
+            <div class="content55">
+             <img class="color-dark15" loading="lazy" alt="" src="./public/logo.png" id="colorDark" />
+               <nav class="column14">
+                <a href="diensten.php" class="link-text29">Diensten</a>
+                <a href="projecten.php" class="link-text30" id="linkText2">Projecten</a>
+                <div class="nav-link-dropdown7">
+                    <a href="planning.php" class="link-text29">Planning</a>
                 </div>
-            </header>
+            </nav>
+         </div>
+        <div class="stylesecondary-smalltrue-a7">
+        <a href="logout.php" class="button15">uitloggen</a>
+
+      </div>
+      </div>
+    </header>
             <section class="header-47">
                 <div class="content70">
                     <div class="column18">
@@ -51,7 +64,7 @@ $Result = $Conn->query($Sql);
 
                             <label for="event_time">Tijd:</label>
                             <input type="time" name="event_time" id="event_time" value="<?php echo isset($EditData) ? $EditData['event_time'] : ''; ?>" required>
-
+                            <br><br>
                             <label for="event_name">Naam van evenement:</label>
                             <input type="text" name="event_name" id="event_name" value="<?php echo isset($EditData) ? $EditData['event_name'] : ''; ?>" required>
 

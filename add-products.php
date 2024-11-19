@@ -1,7 +1,8 @@
 <?php
 include("DatabaseConnection.php");
-//include("admincheck.php");
-session_start();
+include("admincheck.php");
+include("Logincheck.php");
+
 $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 $GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : '';
 $PCheck = $_SESSION['p_check'];
@@ -11,7 +12,7 @@ if($PCheck != true){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html>  
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -66,7 +67,7 @@ if($PCheck != true){
                         <div class="container8">
                             <!-- Formulier om een nieuw product toe te voegen -->
                             <form method="POST" action="B_add-products.php" enctype="multipart/form-data">
-                                <input type="hidden" name="urlid" value="<?php echo htmlspecialchars($UrlId); ?>">
+                                <input type="hidden" name="id" value="<?php echo htmlspecialchars($UrlId); ?>">
                                 <input type="text" id="product_naam" name="product_naam" placeholder="Productnaam" required>
                                 <input type="text" id="product_categorie" name="product_categorie" placeholder="Categorie" required>
                                 <input type="number" id="product_aantal" name="product_aantal" placeholder="Aantal" required>
@@ -101,7 +102,7 @@ if($PCheck != true){
                     ?>
                     <!-- Categorie Selectie -->
                     <form method="GET" class="category-selector" action="B_add-products.php">
-                        <input type="hidden" name="urlid" value="<?php echo htmlspecialchars($UrlId); ?>">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($UrlId); ?>">
                         <label for="categorie">Kies een categorie:</label>
                         <select name="categorie" id="categorie">
                             <!-- Default option for all categories -->

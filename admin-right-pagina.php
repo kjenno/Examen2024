@@ -30,9 +30,9 @@ $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
               </div>
             </nav>
           </div>
-          <div class="stylesecondary-smalltrue-a1">
-            <div class="button2">Uitloggen</div>
-          </div>
+          <div class="stylesecondary-smalltrue-a7">
+        <a href="logout.php" class="button15">uitloggen</a>
+        </div>
         </div>
       </header>
       <section class="header-65">

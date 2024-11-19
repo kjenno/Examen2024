@@ -15,11 +15,24 @@
 </head>
 <body>
     <main>
-        <header class="header-651">
-            <h1>Facturen Pagina</h1>
-            <p>Beheer eenvoudig uw facturen</p>
-        </header>
+    <header class="navbar-65">
+        <div class="content54">
+            <div class="content55">
+             <img class="color-dark15" loading="lazy" alt="" src="./public/logo.png" id="colorDark" />
+               <nav class="column14">
+                <a href="diensten.php" class="link-text29">Diensten</a>
+                <a href="projecten.php" class="link-text30" id="linkText2">Projecten</a>
+                <div class="nav-link-dropdown7">
+                    <a href="planning.php" class="link-text29">Planning</a>
+                </div>
+            </nav>
+         </div>
+        <div class="stylesecondary-smalltrue-a7">
+        <a href="logout.php" class="button15">uitloggen</a>
 
+      </div>
+      </div>
+    </header>
         <section class="form-container">
             <h2>Upload een Factuur</h2>
             <form action="B_factuur.php<?php echo $UrlId ? '?id=' . $UrlId : ''; ?>" method="POST" enctype="multipart/form-data">
