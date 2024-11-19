@@ -7,6 +7,11 @@ a {
   background: none; /* Removes any background styling */
   outline: none; /* Removes any outline for links */
 }
+.color-dark19 {
+  width: 150px;
+  height: auto; /* zorgt ervoor dat de verhoudingen behouden blijven */
+}
+
 .color-dark21 {
   height: 27px;
   width: 63px;
