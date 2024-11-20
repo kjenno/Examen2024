@@ -36,11 +36,11 @@ if (isset($_POST['submit'])) {
                 header("Location: login.php");
             } else {
                 $Message = "Wachtwoorden komen niet overeen.";
-                header("Location: wachtwoord-instellen.php?var1=" . urlencode($Message));
+                header("Location: wachtwoord-instellen.php?message=" . urlencode($Message));
             }
         } else {
             $Message = "Code onjuist.";
-            header("Location: wachtwoord-instellen.php?var1=" . urlencode($Message));
+            header("Location: wachtwoord-instellen.php?message=" . urlencode($Message));
         }
     }
 }

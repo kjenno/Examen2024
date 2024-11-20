@@ -22,9 +22,12 @@ if (isset($_POST['submit']))
     $Allowed = array('pdf', 'jpg', 'jpeg', 'png');
 
 
-    if (in_array($FileActualExt, $Allowed)) {
-        if ($FileError === 0) {
-            if ($FileSize < 1000000) {
+    if (in_array($FileActualExt, $Allowed)) 
+    {
+        if ($FileError === 0) 
+        {
+            if ($FileSize < 1000000)
+            {
                 $NewFileName = uniqid('', true) . "." . $FileActualExt;
                 $FileDestination = 'Uploads/' . $NewFileName;
                 move_uploaded_File($FileTmpName, $FileDestination);
@@ -41,10 +44,11 @@ if (isset($_POST['submit']))
                 $MSubject = "Factuur";
                 $MText = ".";
                 MailSender($ReceiverMail,$MSubject,$MText,$FileDestination);
+                header("Location: factuur.php?id=$UrlId");
                 exit();
             }   
             else 
-            {
+            {   
                 $Message = "The File size was too big.";
             }
         } 
@@ -63,5 +67,5 @@ else
     $Message =  "Form not submitted.";
 }
 
-header("Location: factuur.php?message=" . urlencode($Message));
+header("Location: factuur.php?id=$UrlId&message=" . urlencode($Message));
 ?>

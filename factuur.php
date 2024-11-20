@@ -46,11 +46,15 @@
                         $Sql = "SELECT uuid, name FROM user";
                         $Result = $Conn->query($Sql);
 
-                        if ($Result->num_rows > 0) {
-                            while ($Row = $Result->fetch_assoc()) {
+                        if ($Result->num_rows > 0) 
+                        {
+                            while ($Row = $Result->fetch_assoc()) 
+                            {
                                 echo '<option value="' . htmlspecialchars($Row['uuid']) . '">' . htmlspecialchars($Row['name']) . '</option>';
                             }
-                        } else {
+                        } 
+                        else 
+                        {
                             echo '<option value="">Geen gebruikers beschikbaar</option>';
                         }
                     ?>
@@ -58,6 +62,14 @@
                 
                 <button type="submit" name="submit">Upload</button>
             </form>
+            <?php
+                $Message = $_GET['message'] ?? null;
+                if (!empty($Message)) 
+                {
+                    echo "<p style='color: red; text-align: center;'>$Message</p>";
+                }
+
+            ?>
         </section>
 
         <section class="scrollable-container">
@@ -66,9 +78,12 @@
                     $Sql = "SELECT PDFName, PDFId, BillDate FROM bills";
                     $Result = $Conn->query($Sql);
 
-                    if ($Result) {
-                        if ($Result->num_rows > 0) {
-                            while ($Row = $Result->fetch_assoc()) {
+                    if ($Result) 
+                    {
+                        if ($Result->num_rows > 0) 
+                        {
+                            while ($Row = $Result->fetch_assoc()) 
+                            {
                                 $OldName = $Row['PDFName']; // Display name for the link
                                 $NewName = $Row['PDFId'];    // This is the actual filename to open
                                 $Date = $Row['BillDate'];
@@ -79,10 +94,14 @@
                                 echo '<div>' . $Date . '</div>';
                                 echo '</div>';
                             }
-                        } else {
+                        } 
+                        else 
+                        {
                             echo '<p>No PDFs found.</p>';
                         }
-                    } else {
+                    }
+                     else 
+                    {
                         echo "Error: " . $Conn->error;
                     }
                     $Conn->close();
