@@ -1,6 +1,9 @@
 <?php
+// toevoegen van de login controle
 include("Logincheck.php");
 include("admincheck.php");
+
+// uuid uirt url halen met GET
 $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 ?>
 <!DOCTYPE html>

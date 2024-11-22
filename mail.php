@@ -20,7 +20,7 @@ function MailSender($ReceiverMail,$MSubject,$MText,$FileDestination)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to (TLS)
 
-    //Recipients
+    //verzender
     $mail->setFrom('hyperlightandsoundtest123@gmail.com', 'HyperLightandSound');  // Set your email
     $mail->addAddress($ReceiverMail);                           // Add a recipient
 
@@ -28,7 +28,7 @@ function MailSender($ReceiverMail,$MSubject,$MText,$FileDestination)
     {
         $mail->Body    = $MText;
     }
-    // Content
+    // inhoud
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = $MSubject;
     if($FileDestination != "")

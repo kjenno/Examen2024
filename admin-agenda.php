@@ -1,5 +1,6 @@
 
 <?php
+// toevoegen van de pagina's 
 include("DatabaseConnection.php");
 include("Logincheck.php");
 include("admincheck.php");

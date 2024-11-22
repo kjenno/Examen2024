@@ -1,12 +1,17 @@
 <?php
+//incluide database connectie
 include("DatabaseConnection.php");
+
+//haalt de gegevens uit de URL met GET
 $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
 $GekozenCategorie = isset($_GET['categorie']) ? $_GET['categorie'] : null;
 
-
+//kijkt of er een post aanvraag is voor een product te verwijderen
 if (isset($_POST['verwijder_product'])) {
+    //haalt de gegevens op met POST
     $UrlId = $_POST['urlid'];
     $ProductNaam = $_POST['product_naam']; 
+    //verrwijderd het product dat aangegeven is
     $DeleteQuery = "DELETE FROM products WHERE naam = ?";
     $StmtDelete = $Conn->prepare($DeleteQuery);
     if ($StmtDelete) {
@@ -19,24 +24,24 @@ if (isset($_POST['verwijder_product'])) {
     }
 }
 
-
+//kijkt of er een post aanvraag is om een porduct toe te voegen
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
-   
+    //haalt de gegevens op van post
     $ProductNaam = $_POST['product_naam'];
     $ProductCategorie = $_POST['product_categorie'];
     $ProductAantal = $_POST['product_aantal']; 
     $UrlId = $_POST['urlid'];
 
-  
+    //kijkt of er een foto geupload
     if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) {
         $Allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  
         $FileInfo = pathinfo($_FILES['product_afbeelding']['name']);
         $FileExt = strtolower($FileInfo['extension']);
-
+        //kijkt of het bestant mag geupload worden
         if (in_array($FileExt, $Allowed)) {
-            // Definieer de directory om bestanden op te slaan
+            // Definieer de map om bestanden op te slaan
             $UploadDir = 'uploads/';
-            // Creëer een unieke naam voor het bestand om naamconflicten te vermijden
+            // Creëer een unieke naam voor het bestand om dubble namen te voorkomen
             $UploadFile = $UploadDir . uniqid() . '.' . $FileExt;
 
             // Verplaats het bestand naar de servermap
@@ -91,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
 
 // Als er een categorie is geselecteerd, haal de producten in die categorie op
     if ($GekozenCategorie && $GekozenCategorie !== 'all') {
-        // Query for specific categories
+        // haalt producten op van de gekozen categorie
         $Query = "SELECT naam, aantal, foto FROM products WHERE categorie = ?";
         $Stmt = $Conn->prepare($Query);
         if ($Stmt) {
@@ -103,23 +108,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
             exit;
         }
     } elseif ($GekozenCategorie == 'all' || $GekozenCategorie == '') {
-        // Query for all categories
+        //haalt alle producten op
         $Query = "SELECT naam, aantal, foto FROM products";
         $Result = $Conn->query($Query);
     } else {
-        // Query for all products as a fallback
+        //haalt alle producten op als backup
         $Query = "SELECT naam, aantal, foto FROM products";
         $Result = $Conn->query($Query);
     }
 
-    // Process the query result
+    //verwerkt de data uit de database  
     if ($Result) {
-        $Producten = []; // Initialize the array
+        $Producten = [];
+        // stopt de data van de database in de array
         while ($Row = $Result->fetch_assoc()) {
             $Producten[] = $Row;
         }
+        //stopt de array in een session
         session_start();
         $_SESSION['producten'] = $Producten;
+        //zet p_check op true om zodat de pagina niet herlaad
         $_SESSION['p_check'] = true;
         header("Location: add-products.php?id=$UrlId&category=" . urlencode($GekozenCategorie));
         exit;
@@ -129,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     }
 
 
-// Close the connection
+// sluit verbinding
 $Conn->close();
 
 ?>
