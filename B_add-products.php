@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     $UrlId = $_POST['id'];
 
     //kijkt of er een foto geupload
-    if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) {
+    if (isset($_FILES['product_afbeelding']) && $_FILES['product_afbeelding']['error'] == 0) { 
+        //voorbereiding controlle extenties
         $Allowed = ['pdf', 'jpg', 'jpeg', 'webp'];  
         $FileInfo = pathinfo($_FILES['product_afbeelding']['name']);
         $FileExt = strtolower($FileInfo['extension']);

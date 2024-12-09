@@ -25,7 +25,6 @@ $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
               <img class="color-dark2" loading="lazy" alt="Logo" src="./public/logo.png" />
             </a>
             <nav class="column1">
-              <div class="link-text4"><a href="over-ons.php">Over Ons</a></div>
               <div class="link-text5"><a href="diensten.php">Diensten</a></div>
               <div class="link-text6"><a href="projecten.php" id="linkText2">Projecten</a></div>
               <div class="nav-link-dropdown1">
@@ -136,7 +135,6 @@ $UrlId = isset($_GET['id']) ? $_GET['id'] : null;
             <img class="color-dark3" loading="lazy" alt="" src="./public/color--dark.svg" />
           </div>
           <div class="links1">
-            <a href="over-ons.php" class="link-one1">Over ons</a>
             <a href="admin-agenda.php" class="link-one1">Diensten</a>
             <a href="projecten.php" class="link-one1">Projecten</a>
             <a href="contact.php" class="link-four1">Contact</a>

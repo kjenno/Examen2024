@@ -57,7 +57,7 @@ $Result = $Conn->query($Sql);
             </section>
                 <section class="event-32">
                     <div class="content72">
-                        <form method="POST" action="B_admin-agenda.php?variable=<?php echo urlencode($UrlId); ?>">
+                        <form method="POST" action="B_admin-agenda.php?id=<?php echo urlencode($UrlId); ?>">
                             <input type="hidden" name="id" value="<?php echo isset($EditData) ? $EditData['id'] : ''; ?>">
                             
                             <label for="event_date">Datum:</label>
@@ -98,7 +98,6 @@ $Result = $Conn->query($Sql);
                             echo '<input type="hidden" name="delete_id" value="' . $Row['id'] . '">';
                             echo '<button type="submit" name="delete">Verwijderen</button>';
                             echo '</form>';
-
                             echo '</div>';
                         }
                     } else {
